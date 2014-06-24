@@ -27,9 +27,9 @@ module.exports = {
         upload: 'public/upload'
     },
     resources: {
-        appName: '学路',
-        appTitle: '学路',
-        appCreator: '新东方',
+        appName: '09441',
+        appTitle: '09441',
+        appCreator: 'feivorid',
         errorUnknown: '不好意思，系统出了点小问题'
     }
 };
