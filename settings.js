@@ -1,6 +1,6 @@
 module.exports = {
     id: '09441',
-    name: 'nmblog',
+    name: '09441blog',
     creator: 'feivorid',
     secretKey: 'feivorid',
     mysql:{
