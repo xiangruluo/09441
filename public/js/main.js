@@ -13,7 +13,5 @@
         }
 
     });
-    require(['bootstrap' ], function() {
-        //console.log(all loaded);
-    });
+    require(['bootstrap' ], function() { });
 })(this);
