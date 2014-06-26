@@ -26,8 +26,8 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'public/js/<%= pkg.name %>.js', // 定义要处理的文件位置
-                dest: 'build/js/<%= pkg.name %>.min.js' //定义处理后的文件存放位置
+                src: 'public/js/main.js', // 定义要处理的文件位置
+                dest: 'build/js/main.min.js' //定义处理后的文件存放位置
             }
         },
         requirejs: {
