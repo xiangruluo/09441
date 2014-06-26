@@ -2,13 +2,18 @@
     require.config({
         baseUrl : './public/js',
         paths : {
-            jquery : '../components/jquery/jquery.min',
-            bootstrap : '../components/bootstrap/bootstrap.min'
+            requireLib : '../../public/components/requirejs/require',
+            jQuery: '../../public/components/jquery/jquery',
+            Bootstrap: '../../public/components/bootstrap/js/bootstrap',
+            jqBootstrapValidation: '../../public/components/jqBootstrapValidation/dist/jqBootstrapValidation-1.3.7'
         },
         shim : {
             bootstrap : {
                 deps : [ 'jquery' ],
                 exports : 'bootstrap'
+            },
+            'jqBootstrapValidation': {
+                deps: ['jQuery']
             }
         }
 
