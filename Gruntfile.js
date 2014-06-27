@@ -8,18 +8,19 @@ module.exports = function(grunt) {
             css: {
                 src: [
                         'public/css/*.css',
-                        'public/components/bootstrap/dist/css/bootstrap.css',
-                        'public/components/bootstrap/dist/css/bootstrap-theme.css',
-                        'public/stylesheets/style.css'
+                        'public/components/bootstrap/docs/assets/css/bootstrap.css',
+                        'public/components/bootstrap/docs/assets/css/bootstrap-responsive.css',
+                        'public/stylesheets/style.css',
+                        'public/components/font-awesome/css/font-awesome.css'
                      ],
                 dest:'public/build/css/main.css'
             },
             //合并所有用到的js文件
             js: {
                 src: [
-                    'public/components/bootstrap/dist/js/bootstrap.js',
-                    'public/components/jqBootstrapValidation/dist/jqBootstrapValidation-1.3.7.js',
-                    'public/components/jquery/dist/jquery.js'
+                    'public/components/jquery/jquery.js',
+                    'public/components/bootstrap/docs/assets/js/bootstrap.js',
+                    'public/components/jqBootstrapValidation/dist/jqBootstrapValidation-1.3.7.js'
                 ],
                 dest: 'public/build/js/main.js'
             }
