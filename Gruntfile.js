@@ -3,89 +3,52 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),// 从 package.json 文件读入数据
 
-        copy: {
-            img: {
-                files: [
-                    {
-                        expand: true, flatten: false,
-                        cwd: 'public/img/',
-                        src: ['**'],
-                        dest: 'public/build/img/'
-                    },
-                    {
-                        expand: true, flatten: false,
-                        cwd: 'public/img/',
-                        src: ['**'],
-                        dest: 'public/build/img/'
-                    }
-                ]
+        concat: {
+            //合并所有用到的css文件
+            css: {
+                src: [
+                        'public/css/*.css',
+                        'public/components/bootstrap/dist/css/bootstrap.css',
+                        'public/components/bootstrap/dist/css/bootstrap-theme.css',
+                        'public/stylesheets/style.css'
+                     ],
+                dest:'public/build/css/main.css'
+            },
+            //合并所有用到的js文件
+            js: {
+                src: [
+                    'public/components/bootstrap/dist/js/bootstrap.js',
+                    'public/components/jqBootstrapValidation/dist/jqBootstrapValidation-1.3.7.js',
+                    'public/components/jquery/dist/jquery.js'
+                ],
+                dest: 'public/build/js/main.js'
             }
         },
-        uglify: { //定义任务做什么
-            options: { // 这里，我们可以修改任务的许多行为
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-            },
+
+        uglify: {
+            //压缩合并后的js文件main.js
             build: {
-                src: 'public/js/main.js', // 定义要处理的文件位置
-                dest: 'build/js/main.min.js' //定义处理后的文件存放位置
+                src: 'public/build/js/main.js',
+                dest: 'public/build/js/main.min.js'
             }
         },
-        requirejs: {
-            js: {
-                options: {
-                    baseUrl: "public/js",
-                    mainConfigFile: "public/js/main.js",
-                    include: ['requireLib'],
-                    name: 'main',
-                    out: "public/build/main.js"
-                }
-            },
+
+        cssmin: {
+            //压缩合并后的css文件main.css
             css: {
                 options: {
-                    baseUrl: 'public/css',
-                    cssIn: "public/css/main.css",
-                    out: "public/build/main.css",
-                    cssImportIgnore: null,
-                    optimizeCss: 'default'
-                }
-            }
-        },
-        watch: {
-            img: {
-                files: ['public/img/*'],
-                tasks: ['copy:img', 'requirejs:css'],
-                options: {
-                    nospawn: true,
-                    interrupt: false
-                }
-            },
-            css: {
-                files: ['public/css/*.css'],
-                tasks: ['requirejs:css'],
-                options: {
-                    nospawn: true,
-                    interrupt: false
-                }
-            },
-            js: {
-                files: ['public/js/*.js', 'public/js/*/*.js'],
-                tasks: ['requirejs:js'],
-                options: {
-                    nospawn: true,
-                    interrupt: false
-                }
+                    keepSpecialComments: 1
+                },
+                src: ['public/build/css/main.css'],
+                dest: 'public/build/css/main.min.css'
             }
         }
     });
 
-    // 加载插件 任务谁来做
+    // 加载插件
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    //requirejs
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
-
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    // 注册一个默认任务
-    grunt.registerTask('default', ['uglify','requirejs']);
-    grunt.registerTask('dev', ['watch']);
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    // 注册默认任务
+    grunt.registerTask('default', ['concat', 'uglify', 'cssmin']);
 };

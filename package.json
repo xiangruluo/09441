@@ -19,8 +19,7 @@
     "grunt": "^0.4.5",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-concat": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-contrib-copy": "latest",
-    "grunt-contrib-requirejs": "~0.4.1"
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-cssmin": "latest"
   }
 }
