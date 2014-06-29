@@ -8,6 +8,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/topic', function(req, res) {
+    loadJsCss(req, res);
     res.render('topic', { title: '09441' });
 });
 
