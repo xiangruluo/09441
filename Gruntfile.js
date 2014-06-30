@@ -9,7 +9,7 @@ module.exports = function(grunt) {
                 src: [
                         'public/css/*.css',
                         'public/components/bootstrap/docs/assets/css/bootstrap.css',
-                        'public/components/bootstrap/docs/assets/css/bootstrap-responsive.css',
+//                        'public/components/bootstrap/docs/assets/css/bootstrap-responsive.css',
                         'public/stylesheets/style.css',
                         'public/components/font-awesome/css/font-awesome.css'
                      ],

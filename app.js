@@ -11,7 +11,6 @@ var logging = require('./common/log/logging');
 var logger = logging.logger;
 
 var routes = require('./routes/index');
-
 var app = express();
 
 app.set('title', '09441');
@@ -20,7 +19,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 3001);
 
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
 //app.use(favicon());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
@@ -28,6 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/topic',routes);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

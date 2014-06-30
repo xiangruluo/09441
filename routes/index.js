@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var loadJsCss = require('../common/middleware/loadJsCss');
 
-/* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: '09441' });
+    loadJsCss(req, res);
+    res.render('index', { title: '09441' });
 });
 
 router.get('/topic', function(req, res) {
+    loadJsCss(req, res);
     res.render('topic', { title: '09441' });
 });
 
