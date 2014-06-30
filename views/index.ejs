@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="span9">
                     <div class="well">
-                        <h5>全在这里。。。</h5>
+                        <strong>全在这里。。。</strong>
                         <hr>
                         <div class="text">
                             <a class="pull-left" href="#">
@@ -16,9 +16,15 @@
                             </a>
                             <div class="" style="line-height: 26px; padding-left: 50px;">
                                 <a href="#">我一直都在。。。。。。</a>
-                                <div>
-                                    <span style="font-size: 12px;color: #949494;">9分钟前</span>
-                                </div>
+                                <span class="pull-right" style="font-size: 12px;color: #949494;">9分钟前</span>
+                                <p>
+                                    <a href="#tag" class="item_tag item_tag_add" style="">搞怪</a>
+                                    <a href="#tag" class="item_tag item_tag_add" style="">10回复</a>
+                                    <a href="#" class="pull-right">
+                                        <i class="fa fa-share"></i>
+                                        <i class="icon-remove"></i>
+                                    </a>
+                                </p>
                             </div>
                         </div>
                         <hr>
@@ -28,23 +34,40 @@
                             </a>
                             <div class="" style="line-height: 26px; padding-left: 50px;">
                                 <a href="#">我一直都在。。。。。。</a>
-                                <div>
-                                    <span style="font-size: 12px;color: #949494;">9分钟前</span>
-                                </div>
+                                <span class="pull-right" style="font-size: 12px;color: #949494;">9分钟前</span>
+                                <p>
+                                    <a href="#tag" class="item_tag item_tag_add" style="">搞怪</a>
+                                    <a href="#tag" class="item_tag item_tag_add" style="">10回复</a>
+                                    <a href="#" class="pull-right">
+                                        <i class="fa fa-share"></i>
+                                        <i class="icon-remove"></i>
+                                    </a>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="span3">
                     <div class="well">
-                        222
+                        <p>
+                            <strong>tags</strong>
+                        </p>
+                        <p>
+                            <a href="#tag" class="item_tag item_tag_add" style="margin-top: 6px;">搞怪</a>
+                            <a href="#tag" class="item_tag item_tag_add" style="margin-top: 6px;">搞怪</a>
+                            <a href="#tag" class="item_tag item_tag_add" style="margin-top: 6px;">搞怪</a>
+                        </p>
                     </div>
                 </div>
             </div>
-            <hr>
-            <footer>
-                <p>&copy; Company 2013</p>
-            </footer>
+            <%- include footer %>
         </div>
     </body>
 </html>
+<script>
+    $(function() {
+        $('.text').onmouseover(function() {
+
+        })
+    })
+</script>

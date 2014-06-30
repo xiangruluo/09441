@@ -21,6 +21,7 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-concat": "latest",
     "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-css": "latest",
     "grunt-contrib-cssmin": "latest"
   }
 }
