@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+<%- include header %>
+<%- include login %>
+<!--页面body部分-->
+<div class="container">
+    <div class="row">
+        <div class="span9">
+            <div class="well">
+                <strong>用户注册</strong>
+                <hr>
+                <form class="form-horizontal" action="" method="post">
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail">邮箱</label>
+                        <div class="controls">
+                            <input type="email" required id="inputEmail" placeholder="请输入邮箱">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword">密码</label>
+                        <div class="controls">
+                            <input type="password" name="password" required minlength="6" maxlength="18" id="inputPassword" placeholder="请输入密码" aria-invalid="true">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword">确认密码</label>
+                        <div class="controls">
+                            <input type="password" required data-validation-match-match="password" id="inputPassword" placeholder="请再次输入密码" aria-invalid="true">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn btn-success">Sign in</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="well">
+                <p>
+                    <strong>tags</strong>
+                </p>
+                <p>
+                    <a href="#tag" class="item_tag item_tag_add" style="margin-top: 6px;">搞怪</a>
+                    <a href="#tag" class="item_tag item_tag_add" style="margin-top: 6px;">搞怪</a>
+                    <a href="#tag" class="item_tag item_tag_add" style="margin-top: 6px;">搞怪</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <%- include footer %>
+</div>
+</body>
+</html>
+
