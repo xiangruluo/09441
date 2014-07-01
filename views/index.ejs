@@ -8,9 +8,10 @@
             <div class="row">
                 <div class="span9">
                     <div class="well">
-                        <strong>全在这里。。。</strong>
-                        <hr>
-                        <div class="text">
+                        <p style="border-bottom: 1px dashed #949494;">
+                            <strong>All In Here ！</strong>
+                        </p>
+                        <div class="text" style="border-bottom: 1px dashed #949494;margin-top: 10px;">
                             <a class="pull-left" href="#">
                                 <img class="img-rounded" style="width: 26px;height: 26px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
                             </a>
@@ -20,15 +21,11 @@
                                 <p>
                                     <a href="#tag" class="item_tag item_tag_add" style="">搞怪</a>
                                     <a href="#tag" class="item_tag item_tag_add" style="">10回复</a>
-                                    <a href="#" class="pull-right">
-                                        <i class="fa fa-share"></i>
-                                        <i class="icon-remove"></i>
-                                    </a>
+                                    <a id="remove" class="close" style="display: none;">×</a>
                                 </p>
                             </div>
                         </div>
-                        <hr>
-                        <div class="text">
+                        <div class="text" style="border-bottom: 1px dashed #949494;margin-top: 10px;">
                             <a class="pull-left" href="#">
                                 <img class="img-rounded" style="width: 26px;height: 26px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
                             </a>
@@ -38,10 +35,7 @@
                                 <p>
                                     <a href="#tag" class="item_tag item_tag_add" style="">搞怪</a>
                                     <a href="#tag" class="item_tag item_tag_add" style="">10回复</a>
-                                    <a href="#" class="pull-right">
-                                        <i class="fa fa-share"></i>
-                                        <i class="icon-remove"></i>
-                                    </a>
+                                    <a class="close" style="display: none;">×</a>
                                 </p>
                             </div>
                         </div>
@@ -66,8 +60,11 @@
 </html>
 <script>
     $(function() {
-        $('.text').onmouseover(function() {
-
+        $('.text').hover(function() {
+            $('#remove').attr('style','display:inline');
+        })
+        $('.text').mouseleave(function() {
+            $('#remove').attr('style','display:none');
         })
     })
 </script>
