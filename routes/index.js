@@ -7,14 +7,19 @@ router.get('/', function(req, res) {
     res.render('index', { title: '09441' });
 });
 
-router.get('/register', function(req, res) {
+router.get('/signin', function(req, res) {
     loadJsCss(req, res);
-    res.render('register', { title: '09441' });
+    res.render('signin', { title: '09441' });
 });
 
 router.get('/topic', function(req, res) {
     loadJsCss(req, res);
     res.render('topic', { title: '09441' });
+});
+
+router.get('/tags', function(req, res) {
+    loadJsCss(req, res);
+    res.render('tags', { title: '09441' });
 });
 
 module.exports = router;

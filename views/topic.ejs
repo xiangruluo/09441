@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<%- include header %>
+<%- include login %>
+<!--页面body部分-->
+<div class="container">
+    <div class="row">
+        <div class="span9">
+            <div class="well">
+                <strong>发布话题</strong>
+                <hr>
+                <form class="form-horizontal" action="" method="post">
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail">标题</label>
+                        <div class="controls">
+                            <input type="text" required placeholder="请输入标题">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword">内容</label>
+                        <div class="controls">
+                            <textarea type="password" required cols="70" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn btn-success">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <%- include slider %>
+    </div>
+    <%- include footer %>
+</div>
+</body>
+</html>
+
