@@ -12,7 +12,7 @@ router.get('/signin', function(req, res) {
     res.render('signin', { title: '09441' });
 });
 
-router.get('/topic', function(req, res) {
+router.get('/topic/new', function(req, res) {
     loadJsCss(req, res);
     res.render('topic', { title: '09441' });
 });
