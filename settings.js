@@ -3,12 +3,12 @@ module.exports = {
     name: '09441blog',
     creator: 'feivorid',
     secretKey: 'feivorid',
-    mysql:{
+    mongodb:{
         host: 'localhost',
         user: 'root',
         password: '',
         database:'09441',
-        port: 3306
+        port: 27017
     },
     redis:{
         host: 'localhost',

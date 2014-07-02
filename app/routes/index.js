@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var loadJsCss = require('../common/middleware/loadJsCss');
+var loadJsCss = require('../../common/middleware/loadJsCss');
 
 router.get('/', function(req, res) {
     loadJsCss(req, res);

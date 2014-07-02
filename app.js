@@ -1,3 +1,4 @@
+var settings = require('./settings');
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
@@ -5,12 +6,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
+var mongoose = require('mongoose');
 
+//连接数据库
+mongoose.connect('mongodb://'+settings.mongodb.host+'/'+settings.mongodb.database);
 
+//生成日志文件
 var logging = require('./common/log/logging');
 var logger = logging.logger;
 
-var routes = require('./routes/index');
+var routes = require('./app/routes/index');
 var app = express();
 
 app.set('title', '09441');
