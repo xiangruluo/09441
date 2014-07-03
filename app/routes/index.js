@@ -10,8 +10,8 @@ module.exports = function(app) {
         res.render('index', { title: '09441' });
     });
     //调用其他路由文件
-    user(app);
     topic(app);
+    user(app);
     tag(app);
 };
 

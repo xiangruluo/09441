@@ -5,7 +5,7 @@ var userSchema = new mongoose.Schema({
     nickname: {type: String,default: ''},
     password: String,
     age: {type: Number,min: 10,max: 40,index: true,default: ''},
-    sex: {type: String,default: girl},
+    sex: {type: String,default:'girl'},
     intro: String,
     meta: {
         createOn: {
