@@ -1,25 +1,17 @@
-var express = require('express');
-var router = express.Router();
-var loadJsCss = require('../../common/middleware/loadJsCss');
+var loadJsCss = require('../../common/middleware/loadJsCss'),
+    user = require('./user'),
+    topic = require('./topic'),
+    tag = require('./tag');
 
-router.get('/', function(req, res) {
-    loadJsCss(req, res);
-    res.render('index', { title: '09441' });
-});
+module.exports = function(app) {
+    //首页路由
+    app.get('/',function(req,res) {
+        loadJsCss(req, res);
+        res.render('index', { title: '09441' });
+    });
+    //调用其他路由文件
+    user(app);
+    topic(app);
+    tag(app);
+};
 
-router.get('/signin', function(req, res) {
-    loadJsCss(req, res);
-    res.render('signin', { title: '09441' });
-});
-
-router.get('/topic/new', function(req, res) {
-    loadJsCss(req, res);
-    res.render('topic', { title: '09441' });
-});
-
-router.get('/tags', function(req, res) {
-    loadJsCss(req, res);
-    res.render('tags', { title: '09441' });
-});
-
-module.exports = router;

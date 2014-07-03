@@ -15,14 +15,16 @@ mongoose.connect('mongodb://'+settings.mongodb.host+'/'+settings.mongodb.databas
 var logging = require('./common/log/logging');
 var logger = logging.logger;
 
-var routes = require('./app/routes/index');
 var app = express();
+var routes = require('./app/routes');
+routes(app);
+//require('./app/routes')(app);
 
 app.set('title', '09441');
 // view engine setup
 app.set('views', path.join(__dirname + '/app/', 'views'));
 app.set('view engine', 'ejs');
-app.set('port', process.env.PORT || 3001);
+app.set('port', 3001);
 
 app.use(favicon(__dirname + '/public/img/favicon.ico'));
 //app.use(favicon());
@@ -30,11 +32,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', routes);
-app.use('/topic/new',routes);
-app.use('/signin',routes);
-app.use('/tags',routes);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
