@@ -1,3 +1,4 @@
+var logger = require('../../common/log/logging').logger;
 var userModel = require('../models/userModel');
 
 module.exports = function (app) {
@@ -9,24 +10,9 @@ module.exports = function (app) {
         });
     });
 
-    app.post('/signin',function(req, res) {
+    app.post('/signin/save',function(req, res) {
         console.log(1);
-        var user = new userModel();
-        console.log(user);
-        user.email = req.body.email;
-        user.password = req.body.password;
-        console.log(user);
-        user.meta.createOn = Date.now();
-        user.meta.updateOn = Date.now();
-        user.meta.lastLoginOn = Date.now();
-        console.log(2);
-        user.save(function(err) {
-            console.log(3);
-            if(err) {
-                console.error('错误:'+err);
-            }
-            console.log('注册成功！');
-            res.redirect('/');
-        });
+        console.log(req.params);
+        console.log(req.body);
     });
 }

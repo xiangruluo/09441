@@ -1,49 +1,34 @@
 var mongoose = require('mongoose');
 
-var userSchema = new mongoose.Schema({
+var Schema = mongoose.Schema
+    , ObjectId = Schema.ObjectId;
+
+var userSchema = new Schema({
     email: {type: String,index: true},
-    nickname: {type: String,default: ''},
-    password: String,
-    age: {type: Number,min: 10,max: 40,index: true,default: ''},
-    sex: {type: String,default:'girl'},
-    intro: String,
-    meta: {
-        createOn: {
-            type:Date,
-            default: Date.now()
-        },
-        updateOn: {
-            type:Date,
-            default:Date.now()
-        },
-        lastLoginOn: {
-            type:Date,
-            default:Date.now()
-        }
-    }
+    password: String
 });
 
-userSchema.pre('save',function(next) {
-    if(this.isNew) {
-        this.meta.createOn = this.meta.updateOn = Date.now();
-    }else {
-        this.meta.updateOn = Date.now();
-    }
-
-    next();
-});
+//userSchema.pre('save',function(next) {
+//    if(this.isNew) {
+//        this.meta.createOn = this.meta.updateOn = Date.now();
+//    }else {
+//        this.meta.updateOn = Date.now();
+//    }
+//
+//    next();
+//});
 
 userSchema.statics = {
-    findAll: function(user) {
+    findAll: function(cb) {
         return this
-            .find({})
-            .sort('meta.createOn');
-        exec(user);
+            .find({});
+//            .sort('meta.createOn');
+        exec(cb);
     },
-    findById:function(id,user) {
+    findById:function(id,cb) {
         return this
             .findOne({_id:id});
-        exec(user);
+        exec(cb);
     }
 };
 

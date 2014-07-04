@@ -11,10 +11,6 @@ var mongoose = require('mongoose');
 //连接数据库
 mongoose.connect('mongodb://'+settings.mongodb.host+'/'+settings.mongodb.database);
 
-//生成日志文件
-var logging = require('./common/log/logging');
-var logger = logging.logger;
-
 var app = express();
 var routes = require('./app/routes');
 routes(app);
@@ -28,6 +24,11 @@ app.set('port', 3001);
 
 app.use(favicon(__dirname + '/public/img/favicon.ico'));
 //app.use(favicon());
+//生成日志文件
+var logging = require('./common/log/logging');
+var logger = logging.logger;
+
+app.use(logging.applogger);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
