@@ -11,8 +11,8 @@ module.exports = function (app) {
     });
 
     app.post('/signin/save',function(req, res) {
-        console.log(1);
-        console.log(req.params);
+        console.log(3);
         console.log(req.body);
+        res.redirect('/');
     });
 }
