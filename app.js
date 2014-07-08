@@ -9,7 +9,7 @@ var http = require('http');
 var mongoose = require('mongoose');
 
 //连接数据库
-//mongoose.connect('mongodb://'+settings.mongodb.host+'/'+settings.mongodb.database);
+mongoose.connect('mongodb://'+settings.mongodb.host+'/'+settings.mongodb.database);
 
 var app = express();
 app.set('title', '09441');
@@ -42,7 +42,7 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-
+//500错误
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {

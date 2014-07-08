@@ -22,7 +22,6 @@ userSchema.statics = {
     findAll: function(cb) {
         return this
             .find({});
-//            .sort('meta.createOn');
         exec(cb);
     },
     findById:function(id,cb) {

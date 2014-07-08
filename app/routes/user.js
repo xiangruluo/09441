@@ -11,8 +11,18 @@ module.exports = function (app) {
     });
 
     app.post('/signin/save',function(req, res) {
-        console.log(3);
-        console.log(req.body);
-        res.redirect('/');
+        console.log(1);
+        var user = new userModel();
+        console.log(user);
+        user.email = req.body.email;
+        user.password = req.body.password;
+        user.save(function(err) {
+            if(err) {
+                logger.log(err);
+            }
+            console.log('save success!');
+            res.redirect('/');
+        });
+
     });
 }
