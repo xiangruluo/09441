@@ -9,7 +9,7 @@ var http = require('http');
 var mongoose = require('mongoose');
 
 //连接数据库
-mongoose.connect('mongodb://'+settings.mongodb.host+'/'+settings.mongodb.database);
+//mongoose.connect('mongodb://'+settings.mongodb.host+'/'+settings.mongodb.database);
 
 var app = express();
 app.set('title', '09441');

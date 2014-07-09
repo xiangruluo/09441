@@ -1,5 +1,5 @@
 var logger = require('../../common/log/logging').logger;
-var userModel = require('../models/userModel');
+var User = require('../models').User;
 
 module.exports = function (app) {
     var loadJsCss = require('../../common/middleware/loadJsCss');
@@ -11,18 +11,14 @@ module.exports = function (app) {
     });
 
     app.post('/signin/save',function(req, res) {
-        console.log(1);
-        var user = new userModel();
-        console.log(user);
-        user.email = req.body.email;
-        user.password = req.body.password;
-        user.save(function(err) {
+        var email = req.body.email;
+        var password = req.body.password.trim();
+        User.addAndSave(email,password,function(err) {
             if(err) {
                 logger.log(err);
             }
-            console.log('save success!');
+            console.log('register success!');
             res.redirect('/');
         });
-
     });
 }
