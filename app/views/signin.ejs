@@ -14,7 +14,7 @@
                     <div class="control-group">
                         <label class="control-label" for="inputEmail">邮箱</label>
                         <div class="controls">
-                            <input name="email" type="email" required id="inputEmail" placeholder="请输入邮箱">
+                            <input name="email" type="email" required data-validation-ajax-ajax="/signin/check_email" aria-invalid="false" id="inputEmail" placeholder="请输入邮箱">
                         </div>
                     </div>
                     <div class="control-group">
@@ -42,5 +42,8 @@
     <%- include footer %>
 </div>
 </body>
+<script>
+
+</script>
 </html>
 

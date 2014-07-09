@@ -1,6 +1,6 @@
 var loadJsCss = require('../../common/middleware/loadJsCss'),
     user = require('./user'),
-    topic = require('./topic'),
+//    topic = require('./topic'),
     tag = require('./tag');
 
 module.exports = function(app) {
@@ -10,7 +10,7 @@ module.exports = function(app) {
         res.render('index', { title: '09441' });
     });
     //调用其他路由文件
-    topic(app);
+//    topic(app);
     user(app);
     tag(app);
 };
