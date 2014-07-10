@@ -2,7 +2,7 @@ module.exports = {
     id: '09441',
     name: '09441blog',
     creator: 'feivorid',
-    secretKey: 'feivorid',
+    secretKey: '09441',
     mongodb:{
         host: 'localhost',
         user: 'root',
@@ -14,6 +14,7 @@ module.exports = {
         host: 'localhost',
         port: 6379
     },
+    session_secret: '09441',
     session: {
         expires: 60 // minutes
     },

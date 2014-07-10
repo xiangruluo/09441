@@ -4,6 +4,7 @@ var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var http = require('http');
 var mongoose = require('mongoose');
@@ -26,7 +27,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(cookieParser());
+app.use(require('method-override')());
+app.use(cookieParser(settings.session_secret));
+app.use(session({
+    secret:settings.session_secret,
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //加载路由

@@ -1,6 +1,7 @@
 var logger = require('../../common/log/logging').logger;
 var User = require('../models').User;
 var crypto = require('crypto');
+var sessionAction = require('./common/sessionAction');
 
 //加密方法
 var MD5 = function(password) {
@@ -16,20 +17,22 @@ module.exports = function (app) {
     //加载注册页面
     app.get('/signin',function(req, res) {
         loadJsCss(req, res);
-        res.render('signin',{
-            title:'09441'
-        });
+        var input = {};
+        input.title = "09441";
+        input.user = sessionAction.is_exist(req,res);
+        res.render('signin',input);
     });
 
     //实现注册
     app.post('/signin/save',function(req, res) {
         var email = req.body.email;
         var password = MD5(req.body.password.trim());
-        User.addAndSave(email,password,function(err) {
+        User.addAndSave(email,password,function(err,user) {
             if(err) {
                 logger.log(err);
             }
             console.log('register success!');
+            sessionAction.push(user._id,user.email,req);
             res.redirect('/');
         });
     });
@@ -57,7 +60,6 @@ module.exports = function (app) {
             }
             res.json(returnInfo);
         });
-
     });
 
     //登录
@@ -68,14 +70,23 @@ module.exports = function (app) {
             if(err) {
                 logger.log(err);
             }
-            //console.log(user);
+            console.log(user);
             if(user.length > 0) {
                 console.log('login success!');
+                sessionAction.push(user[0]['_id'],user[0]['email'],req)
                 res.redirect('/');
             }else {
                 console.log('login failed!');
                 res.redirect('/');
             }
         });
+    });
+
+    //登出(注销登录)
+    app.get('/logout',function(req,res) {
+        var logout = sessionAction.clear(req);
+        if(logout == true) {
+            res.redirect('/');
+        }
     });
 };
