@@ -1,7 +1,7 @@
 var loadJsCss = require('../../common/middleware/loadJsCss'),
     sessionAction = require('./common/sessionAction'),
     user = require('./user'),
-//    topic = require('./topic'),
+    topic = require('./topic'),
     tag = require('./tag');
 
 module.exports = function(app) {
@@ -15,7 +15,7 @@ module.exports = function(app) {
         res.render('index', input);
     });
     //调用其他路由文件
-//    topic(app);
+    topic(app);
     user(app);
     tag(app);
 };
