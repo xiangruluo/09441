@@ -37,13 +37,13 @@ module.exports = function (app) {
             if(err) {
                 logger.log(err);
             }
-            console.log(user);
-            if(user) {
-                returnInfo.valid = 0;
-                returnInfo.message = "该邮箱已被注册！";
-            } else {
+            //console.log(user);
+            if(user.length == 0) {
                 returnInfo.valid = 1;
                 returnInfo.message = "该邮箱可以使用！";
+            } else {
+                returnInfo.valid = 0;
+                returnInfo.message = "该邮箱已被注册！";
             }
             res.json(returnInfo);
         });

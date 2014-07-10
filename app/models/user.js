@@ -17,3 +17,10 @@ exports.addAndSave = function(email,password, callback) {
 exports.findByEmail = function(email,callback) {
     User.find({email:email},callback);
 };
+
+/*
+    通过email和密码查询用户信息
+ */
+exports.login = function(email,password,callback) {
+    User.find({email:email,password:password},callback);
+};
