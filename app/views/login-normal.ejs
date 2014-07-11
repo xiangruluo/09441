@@ -6,15 +6,15 @@
 <!--页面body部分-->
 <div class="container">
     <div class="row">
-        <div class="span9">  
+        <div class="span9">
             <div class="well">
                 <strong>用户注册</strong>
                 <hr>
-                <form class="form-horizontal" action="/signin/save" method="post">
+                <form class="form-horizontal" action="/login" method="post">
                     <div class="control-group">
                         <label class="control-label" for="inputEmail">邮箱</label>
                         <div class="controls">
-                            <input name="email" type="email" required data-validation-ajax-ajax="/signin/check_email" aria-invalid="false" id="inputEmail" placeholder="请输入邮箱">
+                            <input name="email" type="email" required id="inputEmail" placeholder="请输入邮箱">
                         </div>
                     </div>
                     <div class="control-group">
@@ -24,14 +24,9 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="inputPassword">确认密码</label>
                         <div class="controls">
-                            <input type="password" required data-validation-match-match="password" id="inputPassword" placeholder="请再次输入密码" aria-invalid="true">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <input type="submit" class="btn btn-success" value="注册" />
+                            <input type="submit" class="btn btn-success" value="登录" />&nbsp;&nbsp;&nbsp;&nbsp;
+                            还没账号？<a href="/signin<% if(to != undefined){ %>?to=<%=to%> <% } %>">注册</a>
                         </div>
                     </div>
                     <input type="hidden" name="to" <% if(to != undefined){ %>value="<%=to%>"<% } %> />

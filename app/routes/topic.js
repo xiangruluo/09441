@@ -8,6 +8,10 @@ module.exports = function (app) {
         var input = {};
         input.title = "09441";
         input.user = sessionAction.is_exist(req,res);
-        res.render('topic',input);
+        if(input.user.is_login == true) {
+            res.render('topic',input);
+        }else {
+            res.redirect('/login?to=/topic/new');
+        }
     });
 }

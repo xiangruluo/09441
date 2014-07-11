@@ -20,6 +20,7 @@ module.exports = function (app) {
         var input = {};
         input.title = "09441";
         input.user = sessionAction.is_exist(req,res);
+        input.to = req.query.to;
         res.render('signin',input);
     });
 
@@ -27,13 +28,20 @@ module.exports = function (app) {
     app.post('/signin/save',function(req, res) {
         var email = req.body.email;
         var password = MD5(req.body.password.trim());
+        var to = req.body.to;
+        console.log(to);
         User.addAndSave(email,password,function(err,user) {
             if(err) {
                 logger.log(err);
             }
             console.log('register success!');
             sessionAction.push(user._id,user.email,req);
-            res.redirect('/');
+            if(!to) {
+                res.redirect('/');
+            }else {
+                res.redirect(to);
+            }
+
         });
     });
 
@@ -61,23 +69,39 @@ module.exports = function (app) {
             res.json(returnInfo);
         });
     });
-
+    //加载登录页面
+    app.get('/login',function(req,res) {
+        loadJsCss(req, res);
+        var input = {};
+        input.title = "09441";
+        input.user = sessionAction.is_exist(req,res);
+        input.to = req.query.to;
+        res.render('login-normal',input);
+    });
     //登录
     app.post('/login',function(req,res) {
         var email = req.body.email;
         var password = MD5(req.body.password);
+        var to = req.body.to;
         User.login(email,password,function(err,user) {
             if(err) {
                 logger.log(err);
             }
-            console.log(user);
             if(user.length > 0) {
                 console.log('login success!');
-                sessionAction.push(user[0]['_id'],user[0]['email'],req)
-                res.redirect('/');
+                sessionAction.push(user[0]['_id'],user[0]['email'],req);
+                if(!to) {
+                    res.redirect('/');
+                }else {
+                    res.redirect(to);
+                }
             }else {
                 console.log('login failed!');
-                res.redirect('/');
+                if(!to) {
+                    res.redirect('/login');
+                }else {
+                    res.redirect('/login?to='+to);
+                }
             }
         });
     });
@@ -88,5 +112,20 @@ module.exports = function (app) {
         if(logout == true) {
             res.redirect('/');
         }
+    });
+
+    //用户个人首页
+    app.get('/user/:id',function(req,res) {
+        loadJsCss(req, res);
+        var input = {};
+        input.title = "09441";
+        input.user = sessionAction.is_exist(req,res);
+        console.log(input.user);
+        if(input.user.is_login == true) {
+            res.render('user',input);
+        }else {
+            res.redirect('/login');
+        }
+
     });
 };
