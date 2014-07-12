@@ -11,34 +11,29 @@
                         <p style="border-bottom: 1px dashed #949494;">
                             <strong>All In Here ！</strong>
                         </p>
+                        <%
+                            var len = list.length;
+                            for(i=0;i<len;i++) {
+                                var item = list[i];
+                        %>
                         <div class="text" style="border-bottom: 1px dashed #949494;margin-top: 10px;">
-                            <a class="pull-left" href="#">
+                            <a class="pull-left" href="/user/<%=item.createBy%>">
                                 <img class="img-rounded" style="width: 26px;height: 26px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
                             </a>
                             <div class="" style="line-height: 26px; padding-left: 50px;">
-                                <a href="#">我一直都在。。。。。。</a>
-                                <span class="pull-right" style="font-size: 12px;color: #949494;">9分钟前</span>
+                                <a href="/topic/<%=item._id%>"><%=item.title%></a>
+                                <span class="pull-right" style="font-size: 12px;color: #949494;"><%=item.createOn%></span>
                                 <p>
-                                    <a href="#tag" class="item_tag item_tag_add" style="">搞怪</a>
-                                    <a href="#tag" class="item_tag item_tag_add" style="">10回复</a>
+                                    <a href="#tag" class="item_tag item_tag_add" style=""><%=item.tag%></a>
+                                    <!--<a href="#tag" class="item_tag item_tag_add" style="">10回复</a>-->
                                     <a id="remove" class="close" style="display: none;">×</a>
                                 </p>
                             </div>
                         </div>
-                        <div class="text" style="border-bottom: 1px dashed #949494;margin-top: 10px;">
-                            <a class="pull-left" href="#">
-                                <img class="img-rounded" style="width: 26px;height: 26px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
-                            </a>
-                            <div class="" style="line-height: 26px; padding-left: 50px;">
-                                <a href="#">我一直都在。。。。。。</a>
-                                <span class="pull-right" style="font-size: 12px;color: #949494;">9分钟前</span>
-                                <p>
-                                    <a href="#tag" class="item_tag item_tag_add" style="">搞怪</a>
-                                    <a href="#tag" class="item_tag item_tag_add" style="">10回复</a>
-                                    <a class="close" style="display: none;">×</a>
-                                </p>
-                            </div>
-                        </div>
+                        <%
+                            }
+                        %>
+
                     </div>
                 </div>
                 <%- include slider %>   
@@ -48,13 +43,13 @@
         </div>
     </body>
 </html>
-<script>
-    $(function() {
-        $('.text').hover(function() {
-            $('#remove').attr('style','display:inline');
-        })
-        $('.text').mouseleave(function() {
-            $('#remove').attr('style','display:none');
-        })
-    })
-</script>
+<!--<script>-->
+    <!--$(function() {-->
+        <!--$('.text').hover(function() {-->
+            <!--$('#remove').attr('style','display:inline');-->
+        <!--})-->
+        <!--$('.text').mouseleave(function() {-->
+            <!--$('#remove').attr('style','display:none');-->
+        <!--})-->
+    <!--})-->
+<!--</script>-->
