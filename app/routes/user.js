@@ -126,7 +126,10 @@ module.exports = function (app) {
                 logger.log(err);
             }
             input.list = list;
-            console.log(input);
+//            for(var i=0;i<list.length;i++) {
+//                var item = list[i];
+//                item.createOn = item.createOn.format();
+//            }
             if(input.user.is_login == true) {
                 res.render('user',input);
             }else {

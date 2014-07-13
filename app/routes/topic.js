@@ -15,7 +15,7 @@ module.exports = function (app) {
             res.redirect('/login?to=/topic/new');
         }
     });
-
+    //新建话题
     app.post('/topic/new',function(req,res) {
         var title = req.body.title.trim();
         var content = req.body.content;
@@ -28,6 +28,38 @@ module.exports = function (app) {
             }
             console.log('add topic success！');
             res.redirect('/');
+        });
+    });
+
+    //topic详细页面
+    app.get('/topic/:id',function(req,res) {
+        loadJsCss(req,res);
+        var id = req.params.id;
+        //console.log(id);
+        var input = {};
+        input.title = "09441";
+        input.user = sessionAction.is_exist(req,res);
+        Topic.findById(id,function(err,item) {
+            if(err) {
+                logger.log(err);
+            }
+            input.item = item;
+            res.render('topic-detail',input);
+        });
+    });
+    //通过标签找topic列表
+    app.get('/tag/:tag',function(req,res) {
+        loadJsCss(req,res);
+        var tag = req.params.tag;
+        var input = {};
+        input.title = "09441";
+        input.user = sessionAction.is_exist(req,res);
+        Topic.listByTagName(tag,function(err,listByTag) {
+            if(err) {
+                logger.log(err);
+            }
+            input.listByTag = listByTag;
+            res.render('topic-tag',input);
         });
     });
 }

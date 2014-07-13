@@ -15,13 +15,11 @@ module.exports = function(app) {
         var input = {};
         input.title = "09441";
         input.user = sessionAction.is_exist(req,res);
-        //console.log(req.session);
         Topic.listAll(function(err,list) {
             if(err) {
                 console.error(err);
             }
             input.list = list;
-            //console.log(input);
             res.render('index', input);
         });
     });

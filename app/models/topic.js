@@ -24,8 +24,19 @@ exports.listAll = function(callback) {
 /*
     查询当前登录的人的topic列表
  */
-exports.listByUserId = function(id,callback) {
-    Topic.find({'createBy':id}).sort({'createOn': 'desc'}).exec(callback);
+exports.listByUserId = function(uid,callback) {
+    Topic.find({'createBy':uid}).sort({'createOn': 'desc'}).exec(callback);
 };
-
+/*
+    通过ID查询
+ */
+exports.findById = function(id,callback) {
+    Topic.findOne({'_id':id},callback);
+};
+/*
+    通过标签名来查找topic列表
+ */
+exports.listByTagName = function(tag,callback) {
+    Topic.find({'tag':tag}).sort({'createOn': 'desc'}).exec(callback);
+};
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<%- include header %>
+<!--页面body部分-->
+<div class="container">
+    <div class="row">
+        <div class="span9">
+            <div class="well">
+                <strong><%=item.title%></strong>
+                <hr>
+                <div style="letter-spacing:0.5px;font-family: Helvetica Neue Helvetica Hiragino Sans GB Wenquanyi Micro Hei Microsoft Yahei Arial sans-serif;">
+                    <%=item.content%>
+                </div><br>
+                <small style="color: #949494;">10次浏览</small>&nbsp;&nbsp;&nbsp;&nbsp;<small style="color: #949494;">发布于7/13 8:23</small>
+                <hr>
+                <form action="" method="post">
+                    <textarea rows="5" style="max-width: 645px;width: 645px;" required></textarea><br>
+                    <input class="btn btn-success" type="submit">
+                </form>
+            </div>
+        </div>
+        <%- include slider %>
+    </div>
+    <%- include footer %>
+</div>
+</body>
+<script>
+
+</script>
+</html>
+
