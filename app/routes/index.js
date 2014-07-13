@@ -3,11 +3,12 @@ var loadJsCss = require('../middlewares/loadJsCss'),
     user = require('./user'),
     topic = require('./topic'),
     tag = require('./tag');
-
+var timeFormat = require('../middlewares/timeFormat')();
 var Topic = require('../models').Topic;
 var User = require('../models').User;
 
 var logger = require('../middlewares/log/logging').logger;
+
 module.exports = function(app) {
     //首页路由
     app.get('/',function(req,res) {
@@ -18,6 +19,10 @@ module.exports = function(app) {
         Topic.listAll(function(err,list) {
             if(err) {
                 console.error(err);
+            }
+            for(var i=0;i<list.length;i++) {
+                var item = list[i];
+                item.createOn = item.createOn.format("yyyy-MM-dd hh:mm:ss");
             }
             input.list = list;
             res.render('index', input);
