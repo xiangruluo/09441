@@ -1,4 +1,4 @@
-var logger = require('../../common/log/logging').logger;
+var logger = require('../middlewares/log/logging').logger;
 var User = require('../models').User;
 var crypto = require('crypto');
 var sessionAction = require('./common/sessionAction');
@@ -13,7 +13,7 @@ var MD5 = function(password) {
 };
 
 module.exports = function (app) {
-    var loadJsCss = require('../../common/middleware/loadJsCss');
+    var loadJsCss = require('../middlewares/loadJsCss');
 
     //加载注册页面
     app.get('/signin',function(req, res) {

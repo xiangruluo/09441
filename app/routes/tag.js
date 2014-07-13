@@ -1,6 +1,6 @@
 var sessionAction = require('./common/sessionAction');
 module.exports = function (app) {
-    var loadJsCss = require('../../common/middleware/loadJsCss');
+    var loadJsCss = require('../middlewares/loadJsCss');
     app.get('/tags',function(req, res) {
         loadJsCss(req, res);
         var input = {};

@@ -1,4 +1,4 @@
-var settings = require('./../../settings');
+var settings = require('../../../settings');
 var log4js = require('log4js');
 log4js.configure(__dirname + '/logging.json', { reloadSecs: settings.logging.reloadSecs });
 var applogger = log4js.getLogger('app');

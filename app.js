@@ -19,7 +19,7 @@ app.set('port', 3001);
 app.use(favicon(__dirname + '/public/img/favicon.ico'));
 
 //生成日志文件
-var logging = require('./common/log/logging');
+var logging = require('./app/middlewares/log/logging');
 var logger = logging.logger;
 
 app.use(logging.applogger);

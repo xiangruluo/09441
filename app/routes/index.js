@@ -1,4 +1,4 @@
-var loadJsCss = require('../../common/middleware/loadJsCss'),
+var loadJsCss = require('../middlewares/loadJsCss'),
     sessionAction = require('./common/sessionAction'),
     user = require('./user'),
     topic = require('./topic'),
@@ -7,7 +7,7 @@ var loadJsCss = require('../../common/middleware/loadJsCss'),
 var Topic = require('../models').Topic;
 var User = require('../models').User;
 
-var logger = require('../../common/log/logging').logger;
+var logger = require('../middlewares/log/logging').logger;
 module.exports = function(app) {
     //首页路由
     app.get('/',function(req,res) {

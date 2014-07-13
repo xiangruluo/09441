@@ -1,8 +1,8 @@
 var sessionAction = require('./common/sessionAction');
-var logger = require('../../common/log/logging').logger;
+var logger = require('../middlewares/log/logging').logger;
 var Topic = require('../models').Topic;
 module.exports = function (app) {
-    var loadJsCss = require('../../common/middleware/loadJsCss');
+    var loadJsCss = require('../middlewares/loadJsCss');
 
     app.get('/topic/new',function(req,res) {
         loadJsCss(req, res);
