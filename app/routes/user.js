@@ -2,6 +2,7 @@ var logger = require('../../common/log/logging').logger;
 var User = require('../models').User;
 var crypto = require('crypto');
 var sessionAction = require('./common/sessionAction');
+var Topic = require('../models').Topic;
 
 //加密方法
 var MD5 = function(password) {
@@ -120,12 +121,17 @@ module.exports = function (app) {
         var input = {};
         input.title = "09441";
         input.user = sessionAction.is_exist(req,res);
-        console.log(input.user);
-        if(input.user.is_login == true) {
-            res.render('user',input);
-        }else {
-            res.redirect('/login');
-        }
-
+        Topic.listByUserId(input.user._id,function(err,list) {
+            if(err) {
+                logger.log(err);
+            }
+            input.list = list;
+            console.log(input);
+            if(input.user.is_login == true) {
+                res.render('user',input);
+            }else {
+                res.redirect('/login');
+            }
+        });
     });
 };

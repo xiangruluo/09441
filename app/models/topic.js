@@ -18,7 +18,14 @@ exports.addAndSave = function(title,content,tag,createBy,createOn,callback) {
     查询话题列表
  */
 exports.listAll = function(callback) {
-    Topic.find({},callback);
+    Topic.find({}).sort({'createOn': 'desc'}).exec(callback);
+};
+
+/*
+    查询当前登录的人的topic列表
+ */
+exports.listByUserId = function(id,callback) {
+    Topic.find({'createBy':id}).sort({'createOn': 'desc'}).exec(callback);
 };
 
 
