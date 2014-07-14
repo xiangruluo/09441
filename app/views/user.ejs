@@ -7,12 +7,19 @@
     <div class="row">
         <div class="span9">
             <div class="well">
+                <p><strong>topics of this user ！</strong></p>
                 <%
                 var len = list.length;
+                    if(len == 0) {
+                    %>
+                        <div style="text-align: center;">暂时无内容！</div>
+                    <%
+                    }else {
                         for(i=0;i<len;i++) {
-                    var item = list[i];
+                            var item = list[i];
                 %>
-                <div class="text" style="border-bottom: 1px dashed #949494;margin-top: 10px;">
+                <hr>
+                <div class="text">
                     <a class="pull-left" href="/user/<%=item.createBy%>">
                         <img class="img-rounded" style="width: 26px;height: 26px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
                     </a>
@@ -21,13 +28,13 @@
                         <span class="pull-right" style="font-size: 12px;color: #949494;"><%=item.createOn%></span>
                         <p>
                             <a href="/tag/<%=item.tag%>" class="item_tag item_tag_add" style=""><%=item.tag%></a>
-                            <!--<a href="#tag" class="item_tag item_tag_add" style="">10回复</a>-->
                             <a id="remove" class="close" style="display: none;">×</a>
                         </p>
                     </div>
                 </div>
                 <%
-                }
+                        }
+                    }
                 %>
             </div>
         </div>

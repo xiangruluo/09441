@@ -120,7 +120,7 @@ module.exports = function (app) {
         var input = {};
         input.title = "09441";
         input.user = sessionAction.is_exist(req,res);
-        Topic.listByUserId(input.user._id,function(err,list) {
+        Topic.listByUserId(req.params.id,function(err,list) {
             if(err) {
                 logger.log(err);
             }
