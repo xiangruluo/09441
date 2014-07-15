@@ -18,6 +18,12 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <label class="control-label" for="inputEmail">昵称</label>
+                        <div class="controls">
+                            <input name="nickname" type="text" required minlength="2" maxlength="12" data-validation-ajax-ajax="/signin/check_nickname" aria-invalid="false" id="inputNickName" placeholder="请输入昵称">
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <label class="control-label" for="inputPassword">密码</label>
                         <div class="controls">
                             <input type="password" name="password" required minlength="6" maxlength="18" id="inputPassword" placeholder="请输入密码" aria-invalid="true">

@@ -1,7 +1,23 @@
 <div class="span3">
+    <%
+        if(user.is_login == true) {
+    %>
+    <div class="well">
+        <p class="text-center">
+            <a href="/user/<%=user._id%>">
+                <img src="http://feivorid.com/Upload/photo/53a299afb6b39.jpg" class="img-circle">
+            </a>
+        </p>
+        <p class="text-center">
+            <a href="/user/<%=user._id%>"><%=user.nickname%></a>
+        </p>
+    </div>
+    <%
+        }
+    %>
     <div class="well">
         <p>
-            <strong>tags</strong>
+            <strong>标签</strong>
         </p>
         <p>
             <a href="#tag" class="item_tag item_tag_add" style="margin-top: 6px;">搞怪</a>

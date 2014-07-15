@@ -55,7 +55,7 @@ module.exports = function (app) {
         input.title = "09441";
         input.user = sessionAction.is_exist(req,res);
         input.tag = tag;
-        Topic.listByTagName(tag,function(err,listByTag) {
+        Topic.listByTagName(input.tag,function(err,listByTag) {
             if(err) {
                 logger.log(err);
             }

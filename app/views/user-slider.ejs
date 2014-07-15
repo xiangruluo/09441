@@ -6,10 +6,16 @@
             </a>
         </p>
         <p class="text-center">
-            <a href="/user/<%=user._id%>"><%=user.email%></a>
+            <a href="/user/<%=user._id%>"><%=user.nickname%></a>
         </p>
         <p class="text-center">
-            <%=user.email%>
+            <%
+                if(user.intro != undefined) {
+            %>
+            <%=user.intro%>
+            <%
+                }
+            %>
         </p>
     </div>
 </div>
