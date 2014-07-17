@@ -28,14 +28,15 @@ module.exports = function (app) {
     app.post('/signin/save',function(req, res) {
         var email = req.body.email;
         var password = MD5(req.body.password.trim());
+        var nickname = req.body.nickname;
         var to = req.body.to;
         console.log(to);
-        User.addAndSave(email,password,function(err,user) {
+        User.addAndSave(email,password,nickname,function(err,user) {
             if(err) {
                 logger.log(err);
             }
             console.log('register success!');
-            sessionAction.push(user._id,user.email,req);
+            sessionAction.push(user._id,user.email,user.nickname,req);
             if(!to) {
                 res.redirect('/');
             }else {
@@ -89,7 +90,7 @@ module.exports = function (app) {
             }
             if(user.length > 0) {
                 console.log('login success!');
-                sessionAction.push(user[0]['_id'],user[0]['email'],req);
+                sessionAction.push(user[0]['_id'],user[0]['email'],user[0]['nickname'],req);
                 if(!to) {
                     res.redirect('/');
                 }else {
@@ -135,5 +136,17 @@ module.exports = function (app) {
                 res.redirect('/login');
             }
         });
+    });
+    //账号设置首页
+    app.get('/account',function(req,res) {
+        loadJsCss(req, res);
+        var input = {};
+        input.title = "09441";
+        input.user = sessionAction.is_exist(req,res);
+        if(input.user.is_login == true) {
+            res.render('account',input);
+        }else {
+            res.redirect('/login');
+        }
     });
 };

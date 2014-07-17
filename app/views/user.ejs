@@ -7,7 +7,7 @@
     <div class="row">
         <div class="span9">
             <div class="well">
-                <p><strong>topics of this user ！</strong></p>
+                <p><strong>该用户最新话题</strong></p>
                 <%
                 var len = list.length;
                     if(len == 0) {
@@ -26,10 +26,15 @@
                     <div class="" style="line-height: 26px; padding-left: 50px;">
                         <a href="/topic/<%=item._id%>"><%=item.title%></a>
                         <span class="pull-right" style="font-size: 12px;color: #949494;"><%=item.createOn%></span>
+                        <%
+                            if(item.tag) {
+                        %>
                         <p>
                             <a href="/tag/<%=item.tag%>" class="item_tag item_tag_add" style=""><%=item.tag%></a>
-                            <a id="remove" class="close" style="display: none;">×</a>
                         </p>
+                        <%
+                            }
+                        %>
                     </div>
                 </div>
                 <%

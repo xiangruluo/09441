@@ -4,10 +4,11 @@ var User = models.User;
 /*
     添加和更新用户信息
  */
-exports.addAndSave = function(email,password, callback) {
+exports.addAndSave = function(email,password,nickname,callback) {
     var user = new User();
     user.email = email;
     user.password = password;
+    user.nickname = nickname;
     user.save(callback);
 };
 
