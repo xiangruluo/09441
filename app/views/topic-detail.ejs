@@ -14,10 +14,22 @@
                 </div><br>
                 <small style="color: #949494;">10次浏览</small>&nbsp;&nbsp;&nbsp;&nbsp;<small style="color: #949494;">发布于7/13 8:23</small>
                 <hr>
+                <%
+                    if(user.is_login == false) {
+                %>
+                <div>欢迎来到09441社区！09441是一个神奇的班级。</div><br>
+                <a href="/login?to=/topic/<%=item._id%>" class="btn btn-success">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/signin?to=/topic/<%=item._id%>" class="btn btn-warning">注册</a>
+                <%
+                    }else {
+                %>
                 <form action="" method="post">
                     <textarea rows="5" style="max-width: 645px;width: 645px;" required></textarea><br>
                     <input class="btn btn-success" type="submit">
                 </form>
+                <%
+                    }
+                %>
             </div>
         </div>
         <%- include slider %>
