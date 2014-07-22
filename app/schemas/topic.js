@@ -6,7 +6,7 @@ var TopicSchema = new Schema({
     content: String,
     tag: {type: String,index: true},
     createBy: String,
-    createOn: {type: Date}
+    createOn: {type: Date, default: Date.now}
 });
 
 mongoose.model('Topic', TopicSchema);

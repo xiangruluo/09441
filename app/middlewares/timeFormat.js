@@ -1,34 +1,35 @@
-// 对Date的扩展，将 Date 转化为指定格式的String
-// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
-// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
-// 例子：
-// (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
-// (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
-Date.prototype.format = function(fmt)
-{
-    var o = {
-        "M+" : this.getMonth()+1,                 //月份
-        "d+" : this.getDate(),                    //日
-        "h+" : this.getHours(),                   //小时
-        "m+" : this.getMinutes(),                 //分
-        "s+" : this.getSeconds(),                 //秒
-        "q+" : Math.floor((this.getMonth()+3)/3), //季度
-        "S"  : this.getMilliseconds()             //毫秒
-    };
-    if(/(y+)/.test(fmt))
-        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
-    for(var k in o)
-        if(new RegExp("("+ k +")").test(fmt))
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
-    return fmt;
+exports.format_date = function (date, friendly) {
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+
+    if (friendly) {
+        var now = new Date();
+        var mseconds = -(date.getTime() - now.getTime());
+        var time_std = [ 1000, 60 * 1000, 60 * 60 * 1000, 24 * 60 * 60 * 1000 ];
+        if (mseconds < time_std[3]) {
+            if (mseconds > 0 && mseconds < time_std[1]) {
+                return Math.floor(mseconds / time_std[0]).toString() + ' 秒前';
+            }
+            if (mseconds > time_std[1] && mseconds < time_std[2]) {
+                return Math.floor(mseconds / time_std[1]).toString() + ' 分钟前';
+            }
+            if (mseconds > time_std[2]) {
+                return Math.floor(mseconds / time_std[2]).toString() + ' 小时前';
+            }
+        }
+    }
+
+    //month = ((month < 10) ? '0' : '') + month;
+    //day = ((day < 10) ? '0' : '') + day;
+    hour = ((hour < 10) ? '0' : '') + hour;
+    minute = ((minute < 10) ? '0' : '') + minute;
+    second = ((second < 10) ? '0': '') + second;
+
+    var thisYear = new Date().getFullYear();
+    year = (thisYear === year) ? '' : (year + '-');
+    return year + month + '/' + day + ' ' + hour + ':' + minute;
 };
-
-//Date.prototype.format = function(format) {
-//    var defaultFormat = 'yyyy-MM-dd hh:mm:ss';
-//    if(!format) {
-//        format = defaultFormat;
-//    }
-//    return timeFormat.format(this, format);
-//};
-
-module.exports = function(){ };

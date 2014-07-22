@@ -1,7 +1,8 @@
 var logger = require('../middlewares/log/logging').logger;
 var crypto = require('crypto');
 var sessionAction = require('./common/sessionAction');
-var timeFormat = require('../middlewares/timeFormat')();
+var timeFormat = require('../middlewares/timeFormat');
+var moment = require('moment');
 var User = require('../models').User;
 var Topic = require('../models').Topic;
 //加密方法
@@ -126,10 +127,10 @@ module.exports = function (app) {
                 logger.log(err);
             }
             input.list = list;
-//            for(var i=0;i<list.length;i++) {
-//                var item = list[i];
-//                item.createOn = item.createOn.format();
-//            }
+            for(var i=0;i<list.length;i++) {
+                var item = list[i];
+                item.createOn = moment(item.createOn).format("YYYY-MM-DD hh:mm:ss");
+            }
             if(input.user.is_login == true) {
                 res.render('user',input);
             }else {
