@@ -1,6 +1,7 @@
 var sessionAction = require('./common/sessionAction');
 var logger = require('../middlewares/log/logging').logger;
 var Topic = require('../models').Topic;
+var moment = require('moment');
 module.exports = function (app) {
     var loadJsCss = require('../middlewares/loadJsCss');
 
@@ -43,6 +44,7 @@ module.exports = function (app) {
             if(err) {
                 logger.log(err);
             }
+            item.createOn = moment(item.createOn).format("MM/DD hh:mm:ss");
             input.item = item;
             res.render('topic-detail',input);
         });
