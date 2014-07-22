@@ -31,5 +31,5 @@ exports.format_date = function (date, friendly) {
 
     var thisYear = new Date().getFullYear();
     year = (thisYear === year) ? '' : (year + '-');
-    return year + month + '/' + day + ' ' + hour + ':' + minute;
+    return year + month + '-' + day + ' ' + hour + ':' + minute;
 };

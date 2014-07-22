@@ -20,13 +20,9 @@ module.exports = function(app) {
             if(err) {
                 console.error(err);
             }
-            var mydate= 'Tue Jul 22 2014 18:11:10 GMT+0800 (中国标准时间)';
-            var date = new Date(Date.parse(mydate.replace(/-/g,   "/")));
             for(var i=0;i<list.length;i++) {
-                list[i].createOn = timeFormat.format_date(date,true);
+                list[i].createOn = timeFormat.format_date(list[i].createOn,true);
             }
-            //console.log(new Date());
-            console.log(list);
             console.log(timeFormat.format_date(new Date(),true));
             input.list = list;
             res.render('index', input);
