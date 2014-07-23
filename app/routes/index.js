@@ -21,6 +21,10 @@ module.exports = function(app) {
             }
             for(var i=0;i<list.length;i++) {
                 list[i].friendly_createOn = timeFormat.format_date(list[i].createOn,true);
+                var id = list[i].createBy;
+//                User.findById(id,function(err,user) {
+//                    list[i].nickname = user.nickname;
+//                });
             }
             input.list = list;
             res.render('index', input);

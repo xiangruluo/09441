@@ -20,6 +20,13 @@ exports.findByEmail = function(email,callback) {
 };
 
 /*
+    根据用户ID查询用户信息
+ */
+exports.findById = function(id,callback) {
+    User.find({_id:id},callback);
+}
+
+/*
     通过email和密码查询用户信息
  */
 exports.login = function(email,password,callback) {

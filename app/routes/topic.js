@@ -21,8 +21,9 @@ module.exports = function (app) {
         var title = req.body.title.trim();
         var content = req.body.content;
         var tag = req.body.tag;
+        var createByName = req.session.nickname;
         var createBy = sessionAction.is_exist(req,res)._id;
-        Topic.addAndSave(title,content,tag,createBy,function(err) {
+        Topic.addAndSave(title,content,tag,createBy,createByName,function(err) {
             if(err) {
                 logger.log(err);
             }
