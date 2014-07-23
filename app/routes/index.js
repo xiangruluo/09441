@@ -3,10 +3,9 @@ var loadJsCss = require('../middlewares/loadJsCss'),
     user = require('./user'),
     topic = require('./topic'),
     tag = require('./tag');
-var moment = require('moment');
 var Topic = require('../models').Topic;
 var User = require('../models').User;
-var timeFormat = require('../middlewares/timeFormat.js');
+var timeFormat = require('../middlewares/timeFormat');
 var logger = require('../middlewares/log/logging').logger;
 
 module.exports = function(app) {
@@ -21,9 +20,9 @@ module.exports = function(app) {
                 console.error(err);
             }
             for(var i=0;i<list.length;i++) {
-                list[i].createOn = timeFormat.format_date(list[i].createOn,true);
+                list[i].friendly_createOn = timeFormat.format_date(list[i].createOn,true);
             }
-            console.log(timeFormat.format_date(new Date(),true));
+            list[0].date = new Date();
             input.list = list;
             res.render('index', input);
         });

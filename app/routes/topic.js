@@ -1,7 +1,7 @@
 var sessionAction = require('./common/sessionAction');
 var logger = require('../middlewares/log/logging').logger;
 var Topic = require('../models').Topic;
-var moment = require('moment');
+var timeFormat = require('../middlewares/timeFormat');
 module.exports = function (app) {
     var loadJsCss = require('../middlewares/loadJsCss');
 
@@ -22,8 +22,7 @@ module.exports = function (app) {
         var content = req.body.content;
         var tag = req.body.tag;
         var createBy = sessionAction.is_exist(req,res)._id;
-        var createOn = new Date();
-        Topic.addAndSave(title,content,tag,createBy,createOn,function(err) {
+        Topic.addAndSave(title,content,tag,createBy,function(err) {
             if(err) {
                 logger.log(err);
             }
@@ -44,7 +43,7 @@ module.exports = function (app) {
             if(err) {
                 logger.log(err);
             }
-            item.createOn = moment(item.createOn).format("MM/DD hh:mm:ss");
+            item.friendly_createOn = timeFormat.format_date(item.createOn,true);
             input.item = item;
             res.render('topic-detail',input);
         });
@@ -60,6 +59,9 @@ module.exports = function (app) {
         Topic.listByTagName(input.tag,function(err,listByTag) {
             if(err) {
                 logger.log(err);
+            }
+            for(var i=0;i<listByTag.length;i++) {
+                listByTag[i].friendly_createOn = timeFormat.format_date(listByTag[i].createOn,true);
             }
             input.listByTag = listByTag;
             res.render('topic-tag',input);

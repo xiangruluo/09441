@@ -33,3 +33,7 @@ exports.format_date = function (date, friendly) {
     year = (thisYear === year) ? '' : (year + '-');
     return year + month + '-' + day + ' ' + hour + ':' + minute;
 };
+
+exports.unix2time = function(unix) {
+    return new Date(parseInt(unix) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+};
