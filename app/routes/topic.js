@@ -44,6 +44,12 @@ module.exports = function (app) {
                 logger.log(err);
             }
             item.friendly_createOn = timeFormat.format_date(item.createOn,true);
+            item.lookTime+= 1;
+            item.save(function(err) {
+                if(err) {
+                    logger.log (err);
+                }
+            });
             input.item = item;
             res.render('topic-detail',input);
         });

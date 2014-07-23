@@ -22,7 +22,6 @@ module.exports = function(app) {
             for(var i=0;i<list.length;i++) {
                 list[i].friendly_createOn = timeFormat.format_date(list[i].createOn,true);
             }
-            list[0].date = new Date();
             input.list = list;
             res.render('index', input);
         });
