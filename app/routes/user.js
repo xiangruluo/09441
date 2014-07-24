@@ -70,6 +70,30 @@ module.exports = function (app) {
             res.json(returnInfo);
         });
     });
+    //判断nickname是否被使用
+    app.get('/signin/check_nickname',function(req,res) {
+        var nickname = req.query.value;
+        //定义返回json
+        var returnInfo = {
+            value: nickname,
+            valid: '',
+            message: ''
+        };
+        User.findByNickname(nickname,function(err,user) {
+            if(err) {
+                logger.log(err);
+            }
+            //console.log(user);
+            if(user.length == 0) {
+                returnInfo.valid = 1;
+                returnInfo.message = "该昵称可以使用！";
+            } else {
+                returnInfo.valid = 0;
+                returnInfo.message = "该昵称已被注册！";
+            }
+            res.json(returnInfo);
+        });
+    });
     //加载登录页面
     app.get('/login',function(req,res) {
         loadJsCss(req, res);

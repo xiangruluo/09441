@@ -20,6 +20,13 @@ exports.findByEmail = function(email,callback) {
 };
 
 /*
+    根据nickname查询用户信息
+ */
+exports.findByNickname = function(nickname,callback) {
+    User.find({nickname:nickname},callback);
+}
+
+/*
     根据用户ID查询用户信息
  */
 exports.findById = function(id,callback) {
