@@ -101,6 +101,7 @@ module.exports = function (app) {
         input.title = "09441";
         input.user = sessionAction.is_exist(req,res);
         input.to = req.query.to;
+        input.err = req.query.err || '';
         res.render('login-normal',input);
     });
     //登录
@@ -123,7 +124,7 @@ module.exports = function (app) {
             }else {
                 console.log('login failed!');
                 if(!to) {
-                    res.redirect('/login');
+                    res.redirect('/login?err=1');
                 }else {
                     res.redirect('/login?to='+to);
                 }
