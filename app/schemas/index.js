@@ -11,8 +11,10 @@ mongoose.connect('mongodb://'+ settings.mongodb.host +'/'+ settings.mongodb.data
 //schemas
 require('./user');
 require('./topic');
+require('./comment');
 
 
 //get model
 exports.User = mongoose.model('User');
 exports.Topic = mongoose.model('Topic');
+exports.Comment = mongoose.model('Comment');
