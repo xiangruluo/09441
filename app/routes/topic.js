@@ -1,6 +1,7 @@
 var sessionAction = require('./common/sessionAction');
 var logger = require('../middlewares/log/logging').logger;
 var Topic = require('../models').Topic;
+var Comment = require('../models').Comment;
 var timeFormat = require('../middlewares/timeFormat');
 module.exports = function (app) {
     var loadJsCss = require('../middlewares/loadJsCss');
@@ -52,7 +53,16 @@ module.exports = function (app) {
                 }
             });
             input.item = item;
-            res.render('topic-detail',input);
+            Comment.findByTopicId(id,function(err,list) {
+                if(err) {
+                    logger.log(err);
+                }
+                for(var i=0;i<list.length;i++) {
+                    list[i].friendly_createOn = timeFormat.format_date(list[i].createOn,true)
+                }
+                input.comlist = list;
+                res.render('topic-detail',input);
+            });
         });
     });
     //通过标签找topic列表
@@ -72,6 +82,23 @@ module.exports = function (app) {
             }
             input.listByTag = listByTag;
             res.render('topic-tag',input);
+        });
+    });
+
+    //回复功能
+    app.post('/comment',function(req,res) {
+        //console.log(req.session);
+        var topic_id = req.body.topic_id;
+        var content = req.body.content;
+        var reply_id = req.body.reply_id;
+        var author_id = req.session._id;
+        console.log(author_id);
+        Comment.addAndSave(topic_id,author_id,reply_id,content,function(err,comment) {
+            if(err) {
+                logger.log(err);
+            }
+            console.info('comment success!');
+            res.redirect('/topic/'+topic_id);
         });
     });
 }

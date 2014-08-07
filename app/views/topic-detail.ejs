@@ -5,6 +5,7 @@
     .text {
         letter-spacing:0.5px;
         font-family: Helvetica Neue Helvetica Hiragino Sans GB Wenquanyi Micro Hei Microsoft Yahei Arial sans-serif;
+        line-height: 25px;
     }
     .reply {
         cursor:pointer;
@@ -24,33 +25,48 @@
                 <small style="color: #949494;"><%=item.lookTime%>次浏览</small>&nbsp;&nbsp;&nbsp;&nbsp;<small style="color: #949494;"><%=item.friendly_createOn%></small>
                 <hr>
                 <!--第一层评论开始-->
+                <%
+                    for(var c = 0;c < comlist.length;c++) {
+                        var com = comlist[c];
+                %>
                 <div class="text" style="">
                     <a class="pull-left" href="/user/<%=item.createBy%>" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="<%=user.nickname%>">
                         <img class="img-circle" style="width: 30px;height: 30px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
                     </a>
-                    <div class="" style="line-height: 26px; padding-left: 50px;">
-                        <span class="">你是猴子派来的豆比吗？</span>
-                        <span class="pull-right" style="font-size: 12px;color: #949494;">
-                            <span onclick="reply('<%= user.nickname %>')" class="reply" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="回复"><i class="fa fa-reply"></i></span>
-                            &nbsp;&nbsp;1楼&nbsp;|&nbsp;<%=item.friendly_createOn%>
+                    <div class="" style="line-height: 25px; padding-left: 40px;">
+                        <span class=""><%=com.content%></span>
+                        <span class="pull-right" style="font-size: 12px;color: #949494;line-height: 25px;">
+                            <%
+                                if(user.is_login == true) {
+                            %>
+                            <span onclick="reply('<%= user.nickname %>')" class="reply" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="回复">
+                                <i class="fa fa-reply"></i>
+                            </span>
+                            <%
+                                }
+                            %>
+                            &nbsp;&nbsp;<%= c+1 %>楼&nbsp;|&nbsp;<%=com.friendly_createOn%>
                         </span>
                     </div>
                     <br>
                     <!--第二层评论过开始-->
-                    <div class="text" style="margin-left: 50px;">
-                       <a class="pull-left" href="/user/<%=item.createBy%>" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="<%=user.nickname%>">
-                            <img class="img-circle" style="width:30px;height: 30px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
-                        </a>
-                        <div class="" style="line-height: 26px; padding-left: 50px;">
-                            <span class="">草，这决定是猴子派来的豆比。</span>
-                            <span class="pull-right" style="font-size: 12px;color: #949494;">
-                                <span class="reply" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="回复"><i class="fa fa-reply"></i></span>
-                                &nbsp;&nbsp;<%=item.friendly_createOn%>
-                            </span>
-                        </div>
-                    </div>
+                    <!--<div class="text" style="margin-left: 50px;">-->
+                       <!--<a class="pull-left" href="/user/<%=item.createBy%>" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="<%=user.nickname%>">-->
+                            <!--<img class="img-circle" style="width:30px;height: 30px;" src="http://avatar.youqu.de/16106.1404026495.jpg">-->
+                        <!--</a>-->
+                        <!--<div class="" style="line-height: 26px; padding-left: 50px;">-->
+                            <!--<span class="">草，这决定是猴子派来的豆比。</span>-->
+                            <!--<span class="pull-right" style="font-size: 12px;color: #949494;">-->
+                                <!--<span class="reply" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="回复"><i class="fa fa-reply"></i></span>-->
+                                <!--&nbsp;&nbsp;<%=item.friendly_createOn%>-->
+                            <!--</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <!--第二层评论过开始-->
                 </div>
+                <%
+                    }
+                %>
                 <!--第一层评论结束-->
                 <hr>
                 <%
@@ -62,8 +78,10 @@
                 <%
                     }else {
                 %>
-                <form action="" method="post">
-                    <textarea id="reply_content" rows="5" style="max-width: 645px;width: 645px;" required></textarea><br>
+                <form action="/comment" method="post">
+                    <textarea id="reply_content" name="content" rows="5" style="max-width: 645px;width: 645px;" required></textarea><br>
+                    <input type="hidden" name="topic_id" value="<%=item.id%>" >
+                    <input type="hidden" name="reply_id" value="<%=item.createBy%>" >
                     <input class="btn btn-success" type="submit">
                 </form>
                 <%
