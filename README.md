@@ -10,7 +10,7 @@
   <li>工作经验：2年</li>
   <li>电话：18513853959</li>
   <li>Email：feivorid@163.com</li>
-  <li>个人站：<a href="http://feivorid.com">feivorid.com</a></li>
+  <li>个人站：<a href="http://feivorid.com">09441.cn</a></li>
   <li>gitHub: <a href="https://github.com/Feivorid">github.com/Feivorid</a></li>
 </ul>
 
