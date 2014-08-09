@@ -4,8 +4,8 @@
 <style>
     .text {
         letter-spacing:0.5px;
-        font-family: Helvetica Neue Helvetica Hiragino Sans GB Wenquanyi Micro Hei Microsoft Yahei Arial sans-serif;
-        line-height: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1em;
     }
     .reply {
         cursor:pointer;
@@ -22,67 +22,67 @@
                 <div class="text">
                     <%=item.content%>
                 </div><br>
-                <small style="color: #949494;"><%=item.lookTime%>次浏览</small>&nbsp;&nbsp;&nbsp;&nbsp;<small style="color: #949494;"><%=item.friendly_createOn%></small>
+
+                <small style="color: #949494;"><%=item.lookTime%>次浏览</small>&nbsp;&nbsp;&nbsp;&nbsp;
+                <small style="color: #949494;"><%=item.friendly_createOn%></small>&nbsp;&nbsp;&nbsp;&nbsp;
+                <%
+                    if(user._id == item.createBy){
+                %>
+                <small onclick="window.location.href='/topic/<%=item._id%>/edit'" class="reply" style="color: #949494;font-size: 13px;" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="编辑">
+                    <i class="fa fa-pencil-square-o"></i>
+                </small>
+                <%
+                    }
+                %>
                 <hr>
                 <!--第一层评论开始-->
                 <%
                     for(var c = 0;c < comlist.length;c++) {
                         var com = comlist[c];
                 %>
-                <div class="text" style="">
+                <div id="reply_<%=com._id%>" class="text" style="border-bottom: 1px dashed #DEDEDE;margin-top: 10px;padding-bottom: 10px;">
                     <a class="pull-left" href="/user/<%=item.createBy%>" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="<%=user.nickname%>">
                         <img class="img-circle" style="width: 30px;height: 30px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
                     </a>
-                    <div class="" style="line-height: 25px; padding-left: 40px;">
-                        <span class=""><%=com.content%></span>
-                        <span class="pull-right" style="font-size: 12px;color: #949494;line-height: 25px;">
+                    <div style="line-height: 30px; padding-left: 40px;">
+                        <font class="text"><%=com.content%></font>
+                        <span class="pull-right" style="font-size: 12px;color: #949494;line-height: 30px;">
                             <%
                                 if(user.is_login == true) {
                             %>
                             <span onclick="reply('<%= user.nickname %>')" class="reply" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="回复">
                                 <i class="fa fa-reply"></i>
+                            </span>&nbsp;&nbsp;
+                            <%if(user._id == com.author_id) {%>
+                            <span class="reply" onclick="delete_com('<%=com._id%>');" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="删除">
+                                <i class="fa fa-times"></i>
                             </span>
+                            <%}%>
                             <%
                                 }
                             %>
                             &nbsp;&nbsp;<%= c+1 %>楼&nbsp;|&nbsp;<%=com.friendly_createOn%>
                         </span>
                     </div>
-                    <br>
-                    <!--第二层评论过开始-->
-                    <!--<div class="text" style="margin-left: 50px;">-->
-                       <!--<a class="pull-left" href="/user/<%=item.createBy%>" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="<%=user.nickname%>">-->
-                            <!--<img class="img-circle" style="width:30px;height: 30px;" src="http://avatar.youqu.de/16106.1404026495.jpg">-->
-                        <!--</a>-->
-                        <!--<div class="" style="line-height: 26px; padding-left: 50px;">-->
-                            <!--<span class="">草，这决定是猴子派来的豆比。</span>-->
-                            <!--<span class="pull-right" style="font-size: 12px;color: #949494;">-->
-                                <!--<span class="reply" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="回复"><i class="fa fa-reply"></i></span>-->
-                                <!--&nbsp;&nbsp;<%=item.friendly_createOn%>-->
-                            <!--</span>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--第二层评论过开始-->
                 </div>
                 <%
                     }
                 %>
                 <!--第一层评论结束-->
-                <hr>
                 <%
                     if(user.is_login == false) {
                 %>
-                <div>欢迎来到09441社区！09441是一个神奇的班级。</div><br>
+                <div style="margin-top: 20px;">欢迎来到09441社区！09441是一个神奇的班级。</div><br>
                 <a href="/login?to=/topic/<%=item._id%>" class="btn btn-success">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="/signin?to=/topic/<%=item._id%>" class="btn btn-warning">注册</a>
                 <%
                     }else {
                 %>
-                <form action="/comment" method="post">
+                <form action="/comment" method="post" style="margin-top: 20px;">
                     <textarea id="reply_content" name="content" rows="5" style="max-width: 645px;width: 645px;" required></textarea><br>
                     <input type="hidden" name="topic_id" value="<%=item.id%>" >
                     <input type="hidden" name="reply_id" value="<%=item.createBy%>" >
-                    <input class="btn btn-success" type="submit">
+                    <input class="btn btn-success" type="submit">&nbsp;&nbsp;<small>(按Ctrl + enter回复)</small>
                 </form>
                 <%
                     }
@@ -101,6 +101,30 @@
             $("#reply_content").val('@' + nickname + ' ');
         }
     }
+    //删除本人回复
+    function delete_com(id) {
+        var url = '/comment/del';
+        if (confirm('你确定要删除吗？')) {
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: {id:id},
+                success: function(data){
+                    if(data == 1) {
+                        $("#reply_"+id).remove();
+                    }
+                }
+            });
+        }
+    }
+
+    //设置键盘事件
+    $('#reply_content').keydown(function(event) {
+        if (event.keyCode == 13 && (event.ctrlKey || event.metaKey)) {
+            event.preventDefault();
+            $(this).closest('form').submit()
+        }
+    });
 </script>
 </html>
 

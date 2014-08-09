@@ -40,4 +40,18 @@ exports.listByTagName = function(tag,callback) {
     Topic.find({'tag':tag}).sort({'createOn': 'desc'}).exec(callback);
 };
 
+/*
+    修改话题内容
+ */
+exports.update = function(id,obj,callback) {
+    Topic.findOne(id,function(err,topic){
+        if (err || !topic) {
+            return callback(err);
+        }
+        topic.content = obj.content;
+        topic.updateOn = new Date();
+        topic.save(callback);
+    });
+};
+
 

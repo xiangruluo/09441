@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+<style>
+    .edit{
+        cursor:pointer;
+        font-size: 13px;
+        color: #949494;
+        margin-left: 5px;
+    }
+</style>
 <body>
 <%- include header %>
 <!--页面body部分-->
@@ -19,13 +27,23 @@
                             var item = list[i];
                 %>
                 <hr>
-                <div class="text">
+                <div class="text" id="topic_<%=item._id%>">
                     <a class="pull-left" href="/user/<%=item.createBy%>">
-                        <img class="img-circle" style="width: 30px;height: 30px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
+                        <img class="img-circle" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="<%=item.createByName%>" style="width: 30px;height: 30px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
                     </a>
-                    <div class="" style="line-height: 26px; padding-left: 50px;">
+                    <div style="line-height: 26px; padding-left: 50px;">
                         <a href="/topic/<%=item._id%>"><%=item.title%></a>
-                        <span class="pull-right" style="font-size: 12px;color: #949494;"><%=item.friendly_createOn%></span>
+                        <span class="pull-right" style="font-size: 12px;color: #949494;margin-left: 10px;"><%=item.friendly_createOn%></span>
+                        <%
+                            if(user._id == item.createBy){
+                        %>
+                        <span onclick="window.location.href='/topic/<%=item._id%>/edit'" class="pull-right edit" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="编辑">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </span>
+                        <%
+                            }
+                        %>
+
                         <%
                             if(item.tag) {
                         %>
