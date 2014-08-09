@@ -53,14 +53,14 @@ module.exports = function (app) {
                 }
             });
             input.item = item;
-            Comment.findByTopicId(id,function(err,list) {
+            Comment.findByTopicId(id,function(err,comlist) {
                 if(err) {
                     logger.log(err);
                 }
-                for(var i=0;i<list.length;i++) {
-                    list[i].friendly_createOn = timeFormat.format_date(list[i].createOn,true)
+                for(var i=0;i<comlist.length;i++) {
+                    comlist[i].friendly_createOn = timeFormat.format_date(comlist[i].createOn,true);
                 }
-                input.comlist = list;
+                input.comlist = comlist;
                 res.render('topic-detail',input);
             });
         });
@@ -101,4 +101,15 @@ module.exports = function (app) {
             res.redirect('/topic/'+topic_id);
         });
     });
-}
+
+    //删除回复
+    app.post('/comment/del',function(req,res) {
+        var id = req.body.id;
+        Comment.delete(id,function(err,flag) {
+            if(err) {
+                logger.log(err);
+            }
+            res.json(flag);
+        });
+    });
+};

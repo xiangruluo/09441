@@ -28,22 +28,9 @@ exports.findByTopicId = function(topic_id,callback) {
 };
 
 /*
- 根据nickname查询用户信息
+    删除回复
  */
-exports.findByNickname = function(nickname,callback) {
-    User.find({nickname:nickname},callback);
-}
-
-/*
- 根据用户ID查询用户信息
- */
-exports.findById = function(id,callback) {
-    User.find({_id:id},callback);
-}
-
-/*
- 通过email和密码查询用户信息
- */
-exports.login = function(email,password,callback) {
-    User.find({email:email,password:password},callback);
+exports.delete = function(id,callback) {
+    Comment.remove({_id:id},callback);
 };
+

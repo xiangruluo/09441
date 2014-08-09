@@ -9,6 +9,7 @@ var TopicSchema = new Schema({
     createBy: {type: ObjectId},
     createByName: {type: String},
     createOn: {type: Date, default: Date.now},
+    updateOn: {type: Date, default: Date.now},
     lookTime: {type: Number,default: 0}
 });
 
