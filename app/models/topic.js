@@ -44,7 +44,7 @@ exports.listByTagName = function(tag,callback) {
     修改话题内容
  */
 exports.update = function(id,obj,callback) {
-    Topic.findOne(id,function(err,topic){
+    Topic.findOne({'_id':id},function(err,topic){
         if (err || !topic) {
             return callback(err);
         }

@@ -30,7 +30,6 @@ module.exports = function (app) {
         var password = MD5(req.body.password.trim());
         var nickname = req.body.nickname;
         var to = req.body.to;
-        console.log(to);
         User.addAndSave(email,password,nickname,function(err,user) {
             if(err) {
                 logger.log(err);
