@@ -28,7 +28,9 @@ module.exports = function(grunt) {
         uglify: {
             //压缩合并后的js文件main.js
             build: {
+                //压缩前的目录
                 src: 'public/build/js/main.js',
+                //压缩后的目录
                 dest: 'public/build/js/main.min.js'
             }
         },
