@@ -58,7 +58,7 @@
     <ul>
       <li>打来到公司之后基本上一直被派到新东方工作(此处省略1000字)，表示很蛋疼;不过感到幸运的是到这边之后开始做nodejs 的项目，并学习到很多其他新技术。</li>
       <li>这期间主要使用php，thinkphp，nodejs，express，jquery，ajax，bootstrap等技术;</li>
-      <li>案例网站：<a href="http://e.xdf.cn">新东方视频教程网站</a></li>
+      <li>案例网站：<a href="http://e.xdf.cn">新东方视频教程网站</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://path.xdf.cn">新东方学路项目</a>（该项目整个都是express写的）</li>
     </ul>
   </li>
 </ul>
