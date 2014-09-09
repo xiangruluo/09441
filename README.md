@@ -42,7 +42,7 @@
     <ul>
       <li>主要负责公司电商网站，以及一些其他网站开发；</li>
       <li>这期间主要使用php，thinkphp，jquery，ajax等技术;</li>
-      <li>案例网站：<a href="http://www.sysante.cn/">圣特红酒商城</a></li>
+      <li>案例网站：<a href="http://www.sysante.cn/" target="_blank">圣特红酒商城</a></li>
     </ul>
   </li>
   <li>
@@ -50,7 +50,7 @@
     <ul>
       <li>主要负责公司门户类网站开发；</li>
       <li>这期间主要使用php，thinkphp，codeigniter，jquery，ajax等技术;</li>
-      <li>案例网站：<a href="http://www.chinaccf.com/">中国化纤交易网</a></li>
+      <li>案例网站：<a href="http://www.chinaccf.com/" target="_blank">中国化纤交易网</a></li>
     </ul>
   </li>
   <li>
