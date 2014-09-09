@@ -11,7 +11,7 @@
   <li>电话：18513853959</li>
   <li>Email：feivorid@163.com</li>
   <li>个人站：<a href="http://09441.cn">09441.cn</a></li>
-  <li>gitHub: <a href="https://github.com/feivorid">github.com/feivorid</a></li>
+  <li>github: <a href="https://github.com/feivorid">http://github.com/feivorid</a></li>
 </ul>
 
 <h1>求职意向</h1>
