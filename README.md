@@ -58,7 +58,7 @@
     <ul>
       <li>打来到公司之后基本上一直被派到新东方工作(此处省略1000字)，表示很蛋疼;不过感到幸运的是到这边之后开始做nodejs 的项目，并学习到很多其他新技术。</li>
       <li>这期间主要使用php，thinkphp，nodejs，express，jquery，ajax，bootstrap等技术;</li>
-      <li>案例网站：<a href="http://e.xdf.cn">新东方视频教程网站</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://path.xdf.cn">新东方学路项目</a>（该项目整个都是express写的）</li>
+      <li>案例网站：<a href="http://e.xdf.cn" target="_blank">新东方视频教程网站</a>&nbsp;、&nbsp;<a href="http://path.xdf.cn" target="_blank">新东方学路项目</a>（该项目整个都是express写的）</li>
     </ul>
   </li>
 </ul>
@@ -69,7 +69,7 @@
   <li>打球(大学时期混过校队)，工作两年之后运动能力明显不如以前；喜欢唱歌(最喜欢歌神张学友的歌);喜欢游泳(现在游几步就游不动了)</li>
   <li>我希望我的工作，是从一而终的对一款产品开发，只要是自己喜欢的互联网产品的开发强度大点无所谓；</li>
   <li>东北人办事敞亮，有时候刨根问底儿。</li>
-  <li>此简历更新于：2014.7.14 晚</li>
+  <li>此简历更新于：2014.9.9 晚</li>
 </ul>
 
 
