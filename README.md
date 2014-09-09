@@ -26,7 +26,7 @@
 <h1>专业技能</h1>
 
 <ol>
-  <li>熟练使用codeigniter,thinkphp等php开源框架；熟练使用express，geddy等nodejs mvc框架。</li>
+  <li>熟练使用codeigniter,thinkphp等php开源框架；熟练使用express等nodejs mvc框架。</li>
   <li>熟练使用javascript,jquery,ajax,bootstrap,gruntjs等，无缝对接前端工作。</li>
   <li>数据库方面熟练使用mysql,MongoDB,redis等关系型和非关系型数据库。</li>
   <li>熟练使用SVN/Git代码版本控制管理工具进行协同开发</li>
