@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+<header>
+    <meta charset="UTF-8" />
+    <title><%=title%></title>
+    <script src="<%=asset.mainJs%>"></script>
+    <link rel="stylesheet" href="<%=asset.mainCss%>">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+            background: #dcdcdc;
+        }
+        .well{
+            background: #ffffff;
+        }
+        .item_tag {
+            background: #FF5F83;
+            color: #FFF;
+            line-height:15px;
+            padding: 4px;
+            border-radius:3px 3px 3px 3px;
+        }
+        .item_tag:hover {
+            background-color: #f31e4e;
+            color: #FFF;
+            text-decoration:none;
+        }
+        .item_tag_add {
+            display: inline-block;
+        }
+    </style>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="/test">测试</a>
+            </div>
+        </div>
+
+    </div>
+
+</header>
+<div class="container">
+    <div class="row">
+        <div class="span9">
+            <div class="well">9</div>
+        </div>
+        <div class="span3">
+            <div class="well">3</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

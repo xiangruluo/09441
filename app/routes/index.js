@@ -3,6 +3,7 @@ var loadJsCss = require('../middlewares/loadJsCss'),
     user = require('./user'),
     topic = require('./topic'),
     tag = require('./tag');
+    test = require('./test');
 var Topic = require('../models').Topic;
 var User = require('../models').User;
 var timeFormat = require('../middlewares/timeFormat');
@@ -34,5 +35,6 @@ module.exports = function(app) {
     topic(app);
     user(app);
     tag(app);
+    test(app);
 };
 

@@ -3,6 +3,10 @@
 <body>
 <%- include header %>
 <%- include login %>
+<script type="text/javascript" src="http://lab.lepture.com/editor/marked.js"></script>
+<script type="text/javascript" src="http://lab.lepture.com/editor/editor.js"></script>
+<link rel="stylesheet" href="http://lab.lepture.com/editor/editor.css" />
+
 <!--页面body部分-->
 <div class="container">
     <div class="row">
@@ -23,6 +27,12 @@
                             <textarea name="content" required cols="70" rows="10"></textarea>
                         </div>
                     </div>
+                    <!-- <div class="control-group">
+                        <label class="control-label" for="inputEmail">内容</label>
+                        <div class="controls">
+                            <textarea id="editor" name="content" required></textarea>
+                        </div>
+                    </div> -->
                     <div class="control-group">
                         <label class="control-label" for="inputPassword">标签</label>
                         <div class="controls">
@@ -42,5 +52,16 @@
     <%- include footer %>
 </div>
 </body>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+<script type="text/javascript">
+    (function($) {
+        $('#editor').load('/components/markdown.md',
+            function(data) {
+                var editor = new Editor();
+                editor.render();
+            }
+        );
+    })(Zepto);
+</script>
 </html>
 
