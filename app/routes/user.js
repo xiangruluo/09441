@@ -162,35 +162,6 @@ module.exports = function (app) {
         });
     });
 
-
-    //加载修改个人发布的话题页面
-    app.get('/topic/:id/edit',function(req,res) {
-        loadJsCss(req, res);
-        var input = {};
-        input.title = "09441";
-        input.user = sessionAction.is_exist(req,res);
-        var id = req.params.id;
-        Topic.findById(id,function(err,item) {
-            input.item = item;
-            item.friendly_createOn = timeFormat.format_date(item.createOn,true);
-            if(input.user.is_login == true) {
-                res.render('topic-edit',input);
-            }else {
-                res.redirect('/login');
-            }
-        });
-    });
-
-    //修改个人发布的话题
-    app.post('/topic/:id/edit',function(req,res) {
-        Topic.update(req.body.id,req.body,function(err,item) {
-            if(err) {
-                logger.log(err);
-            }
-            res.redirect('/topic/' + item._id);
-        });
-    });
-
     //账号设置首页
     app.get('/account',function(req,res) {
         loadJsCss(req, res);
