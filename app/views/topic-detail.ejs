@@ -2,11 +2,6 @@
 <html>
 <body>
 <style>
-    .text {
-        letter-spacing:0.5px;
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1em;
-    }
     .reply {
         cursor:pointer;
     }
@@ -19,9 +14,10 @@
             <div class="well">
                 <strong style="color: #049cdb;"><%=item.title%></strong>
                 <hr>
-                <div class="text">
+                <div>
                     <%=item.content%>
-                </div><br>
+                </div>
+                <br>
 
                 <small style="color: #949494;"><%=item.lookTime%>次浏览</small>&nbsp;&nbsp;&nbsp;&nbsp;
                 <small style="color: #949494;"><%=item.friendly_createOn%></small>&nbsp;&nbsp;&nbsp;&nbsp;
