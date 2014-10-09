@@ -5,7 +5,7 @@ var Comment = require('../models').Comment;
 var timeFormat = require('../middlewares/timeFormat');
 module.exports = function (app) {
     var loadJsCss = require('../middlewares/loadJsCss');
-
+    //新建话题页面加载
     app.get('/topic/new',function(req,res) {
         loadJsCss(req, res);
         var input = {};

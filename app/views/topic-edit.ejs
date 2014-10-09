@@ -23,7 +23,8 @@
                 <hr>
                 <div class="text">
                     <form action="" method="post">
-                        <textarea name="content" rows="9" style="max-width: 645px;width: 645px;" required><%=item.content%></textarea>
+                        <!-- <textarea name="content" rows="9" style="max-width: 645px;width: 645px;" required><%=item.content%></textarea> -->
+                        <%- include public/edit %>
                         <input type="hidden" name="id" value="<%=item._id%>">
                         <input type="submit" class="btn btn-success">
                     </form>

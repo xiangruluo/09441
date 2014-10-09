@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="/components/editor/editor.css" />
+<div class="editor-wrapper">
+    <textarea id="editor" name="content"><%=item.content%></textarea>
+</div>
+<script type="text/javascript" src="/components/editor/marked.js"></script>
+<script type="text/javascript" src="/components/editor/editor.js"></script>
+<script type="text/javascript">
+    (function () {
+        var editor = new Editor();
+        editor.render($('#editor')[0]);
+    })();
+</script>
