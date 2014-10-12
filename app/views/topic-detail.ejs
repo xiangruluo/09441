@@ -30,13 +30,13 @@
                 <%
                     }
                 %>
-                <hr>
+                <!-- <hr> -->
                 <!--第一层评论开始-->
                 <%
                     for(var c = 0;c < comlist.length;c++) {
                         var com = comlist[c];
                 %>
-                <div id="reply_<%=com._id%>" class="text" style="border-bottom: 1px dashed #DEDEDE;margin-top: 10px;padding-bottom: 10px;">
+                <div id="reply_<%=com._id%>" class="text" style="border-top: 1px dashed #DEDEDE;margin-top: 10px;padding-top: 10px;">
                     <a class="pull-left" href="/user/<%=item.createBy%>" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title data-original-title="<%=user.nickname%>">
                         <img class="img-circle" style="width: 30px;height: 30px;" src="http://avatar.youqu.de/16106.1404026495.jpg">
                     </a>
@@ -74,7 +74,7 @@
                 <%
                     }else {
                 %>
-                <form action="/comment" method="post" style="margin-top: 20px;">
+                <form action="/comment" method="post" style="margin-top: 10px;">
                     <!-- <textarea id="reply_content" name="content" rows="5" style="max-width: 645px;width: 645px;" required></textarea> -->
                     <%- include public/comment %>
                     <input type="hidden" name="topic_id" value="<%=item.id%>" >
