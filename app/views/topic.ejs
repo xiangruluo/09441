@@ -10,9 +10,9 @@
             <div class="span12">
                 <div class="well"> <strong>发布话题</strong>
                     <!-- <hr> -->
-                    <form class="form-horizontal" action="/topic/new" method="post" style="margin-top:15px;">
+                    <form class="form-horizontal" id="topic_add" action="/topic/new" method="post" style="margin-top:15px;">
                         <div class="editor-wrapper">
-                            <input class="title" type="text" placeholder="Title" name="title" required minlength="4" maxlength="24"/>
+                            <input id="title" class="title" type="text" placeholder="Title" name="title"/>
                             <textarea id="editor" name="content" placeholder="Content here ...."></textarea>
                         </div>
                         <script type="text/javascript" src="/components/editor/marked.js"></script>
@@ -32,4 +32,18 @@
     </div>
  </div> 
 </body>
+<script src="/components/happyjs/happy.js"></script>
+<script src="/components/happyjs/happy.methods.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#topic_add").isHappy({
+            fields:{
+                '#title': {
+                    required: true,
+                    message: '标题不能为空'
+                }
+            }
+        })
+    })
+</script>
 </html>

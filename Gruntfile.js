@@ -18,9 +18,8 @@ module.exports = function(grunt) {
                 src: [
                     'public/components/jquery/jquery.js',
                     'public/components/bootstrap/docs/assets/js/bootstrap.js',
-                    'public/components/jqBootstrapValidation/dist/jqBootstrapValidation-1.3.7.js',
-                    'public/js/jqBootstrapValidation.js',
-                    'public/components/angular/angular.js'
+                    'public/components/happyjs/happy.js',
+                    'public/components/happyjs/happy.methods.js'
                 ],
                 dest: 'public/build/js/main.js'
             }
