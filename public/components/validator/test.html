@@ -1,0 +1,116 @@
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://niceue.com/validator/dist/0.7.3/jquery.validator.css" rel="stylesheet">
+
+	<script type="text/javascript" src="http://niceue.com/static/js/jquery/jquery-1.10.2.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://niceue.com/validator/dist/0.7.3/jquery.validator.js"></script>
+	<style type="text/css">
+		body {
+		  padding-top: 50px;
+		  padding-bottom: 20px;
+		}
+		#test_form .n-invalid {border: 1px solid #f00;}
+	</style>
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <div class="jumbotron">
+    <div class="container">
+	<div class="row">
+	<!-- <div class="col-md-8">
+		<form class="form-horizontal" role="form">
+		  	<div class="form-group">
+		    	<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+		    	<div class="col-sm-10">
+		      	<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+		    </div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+		    	<div class="col-sm-10">
+		      	<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      	<div class="checkbox">
+			        <label>
+			          <input type="checkbox"> Remember me
+			        </label>
+		      	</div>
+		    </div>
+		  	</div>
+		  	<div class="form-group">
+		    	<div class="col-sm-offset-2 col-sm-10">
+		      		<button type="submit" class="btn btn-default">Sign in</button>
+		    	</div>
+		  	</div>
+		</form>
+	</div> -->
+	<div class="col-md-8">
+          
+		<form class="form-horizontal" id="test_form" role="form">
+		  	<div class="form-group">
+		    	<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+		    	<div class="col-sm-10">
+		      	<input type="email" data-rule="required;email" data-msg-required="不能为空" class="form-control" id="inputEmail3" placeholder="Email">
+		    </div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+		    	<div class="col-sm-10">
+		      	<input type="password" data-rule="required;password" data-msg-required="不能为空" class="form-control" id="inputPassword3" placeholder="Password">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      	<div class="checkbox">
+			        <label>
+			          <input type="checkbox"> Remember me
+			        </label>
+		      	</div>
+		    </div>
+		  	</div>
+		  	<div class="form-group">
+		    	<div class="col-sm-offset-2 col-sm-10">
+		      		<button type="submit" class="btn btn-default">Sign in</button>
+		    	</div>
+		  	</div>
+		</form>
+
+        </div>
+        <!-- <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div> -->
+      </div>
+	</div>
+	</div>
+	</div>
+</html>

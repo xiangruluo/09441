@@ -9,7 +9,8 @@ module.exports = function(grunt) {
                 src: [
                         'public/components/bootstrap/docs/assets/css/bootstrap.css',
                         'public/stylesheets/style.css',
-                        'public/components/font-awesome/css/font-awesome.css'
+                        'public/components/font-awesome/css/font-awesome.css',
+                        'public/components/validator/jquery.validator.css'
                      ],
                 dest:'public/build/css/main.css'
             },
@@ -18,8 +19,7 @@ module.exports = function(grunt) {
                 src: [
                     'public/components/jquery/jquery.js',
                     'public/components/bootstrap/docs/assets/js/bootstrap.js',
-                    'public/components/happyjs/happy.js',
-                    'public/components/happyjs/happy.methods.js'
+                    'public/components/validator/jquery.validator.js'
                 ],
                 dest: 'public/build/js/main.js'
             }
