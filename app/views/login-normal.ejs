@@ -10,17 +10,17 @@
             <div class="well">
                 <strong>用户注册</strong>
                 <hr>
-                <form class="form-horizontal" action="/login" method="post">
+                <form class="form-horizontal" action="/login" method="post" name="login">
                     <div class="control-group">
                         <label class="control-label" for="inputEmail">邮箱</label>
                         <div class="controls">
-                            <input name="email" type="email" required id="inputEmail" placeholder="请输入邮箱">
+                            <input name="email" type="email" data-rule="required;email;" data-msg-required="不能为空" data-msg-email="错误邮箱" id="inputEmail" placeholder="请输入邮箱">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="inputPassword">密码</label>
                         <div class="controls">
-                            <input type="password" name="password" required minlength="6" maxlength="18" id="inputPassword" placeholder="请输入密码" aria-invalid="true">
+                            <input type="password" name="password" data-rule="length[6~];required;password;" data-msg-length="密码最少为6位。" data-msg-required="不能为空" id="inputPassword" placeholder="请输入密码" aria-invalid="true">
                         </div>
                     </div>
                     <% if(err == '1') { %>
@@ -43,8 +43,5 @@
     <%- include footer %>
 </div>
 </body>
-<script>
-
-</script>
 </html>
 

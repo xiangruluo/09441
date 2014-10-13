@@ -7532,7 +7532,7 @@ a {
 .n-error .n-icon{background-position:0 0}
 .n-ok .n-icon{background-position:-16px 0}
 .n-tip .n-icon{background-position:-32px 0}
-.n-loading .n-icon{background:url("images/loading.gif") 0 center no-repeat !important}
+.n-loading .n-icon{background:url("/components/validator/images/loading.gif") 0 center no-repeat !important}
 .n-top,.n-right,.n-bottom,.n-left{display:inline-block;line-height:0;vertical-align:top;outline:0}
 .n-top .n-arrow,.n-bottom .n-arrow{height:6px;width:12px;left:8px}
 .n-left .n-arrow,.n-right .n-arrow{width:6px;height:12px;top:6px}
@@ -7558,10 +7558,10 @@ a {
 .n-default .n-top .msg-wrap{bottom:100%}
 .n-default .n-bottom .msg-wrap{top:100%}
 .n-default .msg-wrap{position:absolute;z-index:1;}
-.n-default .msg-wrap .n-icon{background-image:url("images/validator_default.png")}
+.n-default .msg-wrap .n-icon{background-image:url("/components/validator/images/validator_default.png")}
 .n-default .n-tip .n-icon{display:none}
 .n-simple .msg-wrap{position:absolute;z-index:1;}
-.n-simple .msg-wrap .n-icon{background-image:url("images/validator_simple.png")}
+.n-simple .msg-wrap .n-icon{background-image:url("/components/validator/images/validator_simple.png")}
 .n-simple .n-top .msg-wrap{bottom:100%}
 .n-simple .n-bottom .msg-wrap{top:100%}
 .n-simple .n-left,.n-simple .n-right{margin-top:5px}
@@ -7570,10 +7570,11 @@ a {
 .n-yellow .msg-wrap{position:absolute;z-index:1;padding:4px 6px;font-size:12px;border:1px solid transparent;background-color:#fffcef;border-color:#ffbb76;color:#db7c22;box-shadow:0 1px 3px #ccc;border-radius:2px;}
 .n-yellow .msg-wrap .n-arrow b{color:#ffbb76;text-shadow:0 0 2px #ccc}
 .n-yellow .msg-wrap .n-arrow i{color:#fffcef}
-.n-yellow .msg-wrap .n-icon{background-image:url("images/validator_simple.png")}
+.n-yellow .msg-wrap .n-icon{background-image:url("/components/validator/images/validator_simple.png")}
 .n-yellow .n-top .msg-wrap{bottom:100%}
 .n-yellow .n-bottom .msg-wrap{top:100%}
 .n-yellow .n-tip,.n-yellow .n-ok,.n-yellow .n-loading{background-color:#f8fdff;border-color:#ddd;color:#333;box-shadow:0 1px 3px #ccc;}
 .n-yellow .n-tip .n-arrow b,.n-yellow .n-ok .n-arrow b,.n-yellow .n-loading .n-arrow b{color:#ddd;text-shadow:0 0 2px #ccc}
 .n-yellow .n-tip .n-arrow i,.n-yellow .n-ok .n-arrow i,.n-yellow .n-loading .n-arrow i{color:#f8fdff}
 .n-yellow .n-tip .n-icon{display:none}
+.form-horizontal .n-invalid {border: 1px solid #f00;}
