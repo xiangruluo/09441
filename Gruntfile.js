@@ -19,7 +19,8 @@ module.exports = function(grunt) {
                 src: [
                     'public/components/jquery/jquery.js',
                     'public/components/bootstrap/docs/assets/js/bootstrap.js',
-                    'public/components/validator/jquery.validator.js'
+                    'public/components/validator/jquery.validator.js',
+                    'public/components/validator/local/zh_CN.js'
                 ],
                 dest: 'public/build/js/main.js'
             }
