@@ -18,7 +18,7 @@
 
 <ul>
   <li>工作性质：全职</li>
-  <li>期望职业：php/nodejs开发</li>
+  <li>期望职业：php开发</li>
   <li>工作地点：北京</li>
 </ul>
 
