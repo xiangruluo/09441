@@ -81,7 +81,7 @@
 
 
 
-<!--just study it.-->
+just study it.
 
 
 
